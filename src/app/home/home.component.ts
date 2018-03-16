@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public toolsObject:any[]=[];
+  public filterargs: String ="";
+  public strategyFilter: String ="";
   constructor() {
   }
 
@@ -40,6 +42,69 @@ export class HomeComponent implements OnInit {
         "keywords":"Lecturas",
         "pedagogicStrategy":"Aprendizaje autodidacta"
       },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      },
+      {
+        "name":"Foros sicua",
+        "image":"",
+        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
+        "keywords":"Lecturas",
+        "pedagogicStrategy":"Aprendizaje autodidacta"
+      }
     ];
     this.toolsObject = toolsObject;
   }

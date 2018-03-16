@@ -41,5 +41,20 @@
 				resetForms: true,
 				side: 'right'
 			});
+  $(window).scroll(function()
+  {
+    console.log($(window).scrollTop());
+    if ($(window).scrollTop() >750)
+    {
+      $('#searchFields').addClass('barraFlotante');
+      $('#searchFields').removeClass('row gtr-uniform');
+    }
+    else
+    {
+      //borramos la clase barraFlotante y añadimos la clase barraNormal
+      $('#searchFields').removeClass('barraFlotante');
+      $('#searchFields').addClass('row gtr-uniform');
+    }
+  });
 
 })(jQuery);

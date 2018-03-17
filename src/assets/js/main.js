@@ -43,7 +43,6 @@
 			});
   $(window).scroll(function()
   {
-    console.log($(window).scrollTop());
     if ($(window).scrollTop() >750)
     {
       $('#searchFields').addClass('barraFlotante');

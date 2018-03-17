@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {HomelistService} from "../services/homelist.service";
 
 @Component({
   selector: 'app-home',
+  providers:[HomelistService],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -9,104 +11,19 @@ export class HomeComponent implements OnInit {
   public toolsObject:any[]=[];
   public filterargs: String ="";
   public strategyFilter: String ="";
-  constructor() {
+  constructor(public toolList:HomelistService) {
   }
 
   ngOnInit() {
-    let toolsObject=[
-      {
-        "name":"Foros moodle",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos",
-        "keywords":"Moodle, foros",
-        "pedagogicStrategy":"Interacción de alumnos"
+    console.log(this.toolList);
+    this.toolList.getTools().subscribe(
+      result => {
+          this.toolsObject = result;
       },
-      {
-        "name":"Sicua tareas",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos",
-        "keywords":"Sicua, tareas",
-        "pedagogicStrategy":"Tareas web"
-      },
-      {
-        "name":"Blog",
-        "image":"",
-        "description":"Blog para preguntas e interacción entre estudiantes y alumnos",
-        "keywords":"Blog, paginas",
-        "pedagogicStrategy":"Temas de lectura publica"
-      },
-      {
-        "name":"Green cookie",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
-      },
-      {
-        "name":"Foros sicua",
-        "image":"",
-        "description":"Foros para preguntas e interacción entre estudiantes y alumnos en sicualplus",
-        "keywords":"Lecturas",
-        "pedagogicStrategy":"Aprendizaje autodidacta"
+      error => {
+        console.log(<any>error);
       }
-    ];
-    this.toolsObject = toolsObject;
+    );
   }
 
 }

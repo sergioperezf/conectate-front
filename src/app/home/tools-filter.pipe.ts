@@ -10,9 +10,10 @@ export class ToolsFilterPipe implements PipeTransform {
     if (!toolsObject || !filter) {
       return toolsObject;
     }
-    // filter items array, items which match and return true will be
-    // kept, false will be filtered out
-    return toolsObject.filter(item => item.name.indexOf(filter) !== -1);
+    let filterByName = toolsObject.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
+    let filterByKeyWords = toolsObject.filter(item => item.keyWords.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
+
+    return filterByName.concat(filterByKeyWords);
   }
 
 }

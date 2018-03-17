@@ -15,14 +15,16 @@
       <p>Encuentra toda la información necesaria sobre herramientas que pueden ayudarte a implementar nuevas estrategias de enseñanza.</p>
       <div class="row gtr-uniform" id="searchFields">
         <div class="col-6 col-12-xsmall">
-          <input type="text" name="herramienta" [(ngModel)]="filterargs" id="name" value="" placeholder="Buscar una herramienta" />
+          <input type="text" name="herramienta" [(ngModel)]="filterargs" id="name" value="" placeholder="Herramientas, palabras clave" />
         </div>
         <div class="col-6 col-12-xsmall">
           <select name="category" id="category" [(ngModel)]="strategyFilter">
             <option value="">Filtrar por estrategia pedagogica</option>
-            <option value="Interacción de alumnos">Interacción de alumnos</option>
-            <option value="Tareas web">Tareas web</option>
-            <option value="Temas de lectura publica">Temas de lectura publica</option>
+            <option value="Online">Online</option>
+            <option value="Aprendizaje virtual">Aprendizaje virtual</option>
+            <option value="Distribucion de conocimientos">Distribucion de conocimientos</option>
+            <option value="Opiniones del conocimiento">Opiniones del conocimiento</option>
+            <option value="Dibujo creativo">Dibujo creativo</option>
             <option value="Aprendizaje autodidacta">Aprendizaje autodidacta</option>
           </select>
         </div>
@@ -35,7 +37,7 @@
             <a href="#" class="icon fa-vcard-o"><span class="label">Icon</span></a>
             <h3>{{tool.name}}</h3>
           </header>
-          <label style="font-size:12px;"> Palabras clave: {{tool.keywords}}</label>
+          <label style="font-size:12px;"> Palabras clave: {{tool.keyWords}}</label>
           <label style="font-size:12px;"> Estrategia pedagogica: {{tool.pedagogicStrategy}}</label>
           <p>{{tool.description}}</p>
         </div>

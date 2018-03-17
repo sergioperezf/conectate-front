@@ -9,6 +9,8 @@ import {app_rountig} from "./app.routes";
 import { ToolsFilterPipe } from './home/tools-filter.pipe';
 import { StrategyFilterPipe } from './home/strategy-filter.pipe';
 
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { StrategyFilterPipe } from './home/strategy-filter.pipe';
   imports: [
     BrowserModule,
     app_rountig,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

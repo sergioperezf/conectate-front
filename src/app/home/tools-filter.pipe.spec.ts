@@ -5,4 +5,26 @@ describe('ToolsFilterPipe', () => {
     const pipe = new ToolsFilterPipe();
     expect(pipe).toBeTruthy();
   });
+
+  it('test off strategic filters', () => {
+    const pipe = new ToolsFilterPipe();
+    let toolsObject = [
+      {
+        'id':1,
+        'name':'Moodle',
+        'keyWords':'Platafora web',
+        'pedagogicStrategy':'Online',
+        'description':'Aprendizaje virual'
+      },
+      {
+        'id':2,
+        'name':'Sicua',
+        'keyWords':'Platafora web',
+        'pedagogicStrategy':'Foros',
+        'description':'Foros viruales'
+      }
+    ];
+    expect(pipe.transform(toolsObject,"Sicua")).toEqual([toolsObject[1]]);
+  });
+
 });

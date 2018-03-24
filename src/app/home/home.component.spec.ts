@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
+import { ToolsFilterPipe } from './tools-filter.pipe';
+import { StrategyFilterPipe } from './strategy-filter.pipe';
+import {HttpClientModule} from '@angular/common/http';
+import {HomelistService} from "../services/homelist.service";
+
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +13,16 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [
+        HomeComponent,
+        ToolsFilterPipe,
+        StrategyFilterPipe
+      ],
+      imports: [
+        FormsModule,
+        HttpClientModule
+      ],
+      providers:[HomelistService]
     })
     .compileComponents();
   }));
@@ -19,7 +33,9 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('toolsObject test', () => {
+    expect(component.toolsObject).toEqual([]);
   });
 });
+
+

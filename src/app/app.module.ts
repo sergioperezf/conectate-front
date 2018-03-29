@@ -10,6 +10,7 @@ import { ToolsFilterPipe } from './home/tools-filter.pipe';
 import { StrategyFilterPipe } from './home/strategy-filter.pipe';
 
 import {HttpClientModule} from '@angular/common/http';
+import { TutorialComponent } from './tutorial/tutorial.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     HomeComponent,
     ToolsFilterPipe,
-    StrategyFilterPipe
+    StrategyFilterPipe,
+    TutorialComponent
   ],
   imports: [
     BrowserModule,

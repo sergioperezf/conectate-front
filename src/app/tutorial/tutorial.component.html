@@ -1,0 +1,40 @@
+<section class="wrapper">
+  <div class="inner">
+    <header class="special">
+      <h2>Tutoriales de la herramienta</h2>
+
+      <form (ngSubmit)="onSubmit()" #frmTutorial="ngForm">
+        <div class="row">
+          <div class="col-6 col-12-xsmall">
+            <input type="text" name="txtNombre" [(ngModel)]="Nombre" id="txtNombre" value="" required placeholder="" #txtNombre="ngModel"
+            />
+            <div [hidden]="txtNombre.valid || txtNombre.pristine" class="alert alert-danger">
+              Nombre es requerido.
+            </div>
+          </div>
+          <div class="col-6 col-12-xsmall">
+            <input type="url" name="txtUrl" [(ngModel)]="Url" id="txtUrl" value="" required placeholder="" #txtUrl="ngModel" />
+            <div [hidden]="txtUrl.valid || txtUrl.pristine" class="alert alert-danger">
+              Url es requerida.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-6 col-12-xsmall">
+            <br/>
+            <textarea name="txtComentario" [(ngModel)]="Comentario" ng-value="" maxlength="250">
+                    
+            </textarea>
+          </div>
+        </div>
+
+        <div class="col-6 col-12-xsmall">
+          <br/>
+          <button type="submit" class="btn btn-success" [disabled]="!frmTutorial.form.valid">Guardar</button>
+        </div>
+      </form>
+
+    </header>
+  </div>
+</section>

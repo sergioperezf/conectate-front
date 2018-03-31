@@ -3,17 +3,17 @@
     <header class="special">
       <h2>Tutoriales de la herramienta</h2>
 
-      <form (ngSubmit)="onSubmit()" #frmTutorial="ngForm">
+      <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm">
         <div class="row">
           <div class="col-6 col-12-xsmall">
-            <input type="text" name="txtNombre" [(ngModel)]="Nombre" id="txtNombre" value="" required placeholder="" #txtNombre="ngModel"
+            <input type="text" name="txtNombre" [(ngModel)]="tutorial.name" id="txtNombre" value="" required placeholder="" #txtNombre="ngModel"
             />
             <div [hidden]="txtNombre.valid || txtNombre.pristine" class="alert alert-danger">
               Nombre es requerido.
             </div>
           </div>
           <div class="col-6 col-12-xsmall">
-            <input type="url" name="txtUrl" [(ngModel)]="Url" id="txtUrl" value="" required placeholder="" #txtUrl="ngModel" />
+            <input type="url" name="txtUrl" [(ngModel)]="tutorial.url" id="txtUrl" value="" required placeholder="" #txtUrl="ngModel" />
             <div [hidden]="txtUrl.valid || txtUrl.pristine" class="alert alert-danger">
               Url es requerida.
             </div>
@@ -23,7 +23,7 @@
 
           <div class="col-6 col-12-xsmall">
             <br/>
-            <textarea name="txtComentario" [(ngModel)]="Comentario" ng-value="" maxlength="250">
+            <textarea name="txtComentario" [(ngModel)]="tutorial.commentary" ng-value="" maxlength="250">
                     
             </textarea>
           </div>

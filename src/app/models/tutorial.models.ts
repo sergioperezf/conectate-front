@@ -4,4 +4,6 @@ export class Tutorial {
     public url:string;
     public commentary:string;
     public tool : number;
+
+    constructor(){}
 }

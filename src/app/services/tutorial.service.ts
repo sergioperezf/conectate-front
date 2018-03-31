@@ -19,8 +19,8 @@ export class TutorialService {
 
   addTutorial(tutorial: Tutorial): Observable<any>{
     let data  = JSON.stringify(tutorial);
-    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-    return this.http.post(this.url+'productos', data, {headers: headers});
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.post(this.url, data, {headers: headers});
   }
 
 }

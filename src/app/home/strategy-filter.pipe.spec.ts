@@ -13,14 +13,14 @@ describe('StrategyFilterPipe', () => {
         'id':1,
         'name':'Moodle',
         'keyWords':'Platafora web',
-        'pedagogicStrategy':'Online',
+        'technicalDetails':'Online',
         'description':'Aprendizaje virual'
       },
       {
         'id':2,
         'name':'Sicua',
         'keyWords':'Platafora web sicua',
-        'pedagogicStrategy':'Foros',
+        'technicalDetails':'Foros',
         'description':'Foros viruales'
       }
     ];

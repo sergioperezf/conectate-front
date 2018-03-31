@@ -41,19 +41,24 @@
 				resetForms: true,
 				side: 'right'
 			});
-  $(window).scroll(function()
+/*  $(window).scroll(function()
   {
-    if ($(window).scrollTop() >750)
+    console.log($(window).scrollTop());
+    if ($(window).scrollTop() >900)
     {
       $('#searchFields').addClass('barraFlotante');
       $('#searchFields').removeClass('row gtr-uniform');
     }
-    else
+    else if($(window).scrollTop() <=936 && $(window).scrollTop() >=831)
     {
+      $('#searchFields').addClass('barraFlotante');
+      $('#searchFields').removeClass('row gtr-uniform');
+    }
+    else {
       //borramos la clase barraFlotante y añadimos la clase barraNormal
       $('#searchFields').removeClass('barraFlotante');
       $('#searchFields').addClass('row gtr-uniform');
     }
-  });
+  });*/
 
 })(jQuery);

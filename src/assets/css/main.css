@@ -2272,8 +2272,6 @@ ul.icons {
       padding: 2rem 0 0.1rem 0 ; } }
 
 /* Header */
-body {
-  padding-top: 3.25rem; }
   body:before {
     content: ' ';
     background-image: url(../images/bg.jpg);

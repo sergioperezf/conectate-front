@@ -14,13 +14,17 @@ export class RichtextComponent {
   public tool: any = {};
   public value: string;
   public name: string;
+  public $textArea: any;
   constructor(private hostElement: ElementRef) {
   }
 
+  ngOnChanges() {
+    this.$textArea.summernote('code', this.value);
+  }
 
-  ngAfterViewInit() {
-    let $textArea = $(this.hostElement.nativeElement).find('.richtext-editor');
-    $textArea.summernote({
+  ngOnInit() {
+    this.$textArea = $(this.hostElement.nativeElement).find('.richtext-editor');
+    this.$textArea.summernote({
       height: 300
     });
   }

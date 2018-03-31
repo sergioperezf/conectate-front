@@ -1,5 +1,5 @@
 <div class="row">
-    <form id="tool-form">
+    <form (ngSubmit)="onSubmit()" id="tool-form">
         <label for="tool-name">Nombre </label>
         <input class='form-control' value="{{ name }}" type="text" id="tool-name" name="tool_name" />
         <label for="tool-content">Contenido</label>

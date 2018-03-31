@@ -25,4 +25,8 @@ export class EditToolComponent implements OnInit {
       }
     );
   }
+
+  onSubmit() {
+    console.log(this.name);
+  }
 }

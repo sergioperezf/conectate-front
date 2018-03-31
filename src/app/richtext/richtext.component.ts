@@ -8,15 +8,20 @@ import { hostElement } from '@angular/core/src/render3/instructions';
   selector: 'app-richtext',
   templateUrl: './richtext.component.html',
   styleUrls: ['./richtext.component.scss'],
-  inputs: ['name']
+  inputs: ['value', 'name']
 })
-export class RichtextComponent implements OnInit {
-  name: string;
+export class RichtextComponent {
+  public tool: any = {};
+  public value: string;
+  public name: string;
   constructor(private hostElement: ElementRef) {
   }
 
-  ngOnInit() {
+
+  ngAfterViewInit() {
     let $textArea = $(this.hostElement.nativeElement).find('.richtext-editor');
-    $textArea.summernote();
+    $textArea.summernote({
+      height: 300
+    });
   }
 }

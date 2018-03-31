@@ -11,6 +11,7 @@ import { ToolsFilterPipe } from './home/tools-filter.pipe';
 import { StrategyFilterPipe } from './home/strategy-filter.pipe';
 
 import {HttpClientModule} from '@angular/common/http';
+import { EditToolComponent } from './tools/edit/editTool.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     ToolsFilterPipe,
     StrategyFilterPipe,
-    RichtextComponent
+    RichtextComponent, 
+    EditToolComponent
   ],
   imports: [
     BrowserModule,

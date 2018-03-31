@@ -1,0 +1,10 @@
+<div class="row">
+    <form id="tool-form">
+        <label for="tool-name">Nombre </label>
+        <input class='form-control' value="{{ name }}" type="text" id="tool-name" name="tool_name" />
+        <label for="tool-content">Contenido</label>
+        <app-richtext value="{{ description }}" name="tool_content"></app-richtext>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
+</div>

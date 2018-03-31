@@ -11,36 +11,45 @@
 <section class="wrapper">
   <div class="inner">
     <header class="special">
-      <h2>Herramientas para la educación</h2>
-      <p>Encuentra toda la información necesaria sobre herramientas que pueden ayudarte a implementar nuevas estrategias de enseñanza.</p>
-      <div class="row gtr-uniform" id="searchFields">
-        <div class="col-6 col-12-xsmall">
-          <input type="text" name="herramienta" [(ngModel)]="filterargs" id="name" value="" placeholder="Herramientas, palabras clave" />
+      <form>
+        <h2>Herramientas para la educación</h2>
+        <p>Encuentra toda la información necesaria sobre herramientas que pueden ayudarte a implementar nuevas estrategias de enseñanza.</p>
+        <div class="row gtr-uniform" id="searchFields">
+          <div class="col-6 col-12-xsmall">
+            <input type="text" name="herramienta" [(ngModel)]="filterargs" id="name" value="" placeholder="Herramientas, palabras clave" (keypress)="filterData(filterargs,$event.keyCode)" />
+          </div>
+          <div class="col-6 col-12-xsmall">
+            <select name="category" id="category" [(ngModel)]="strategyFilter">
+              <option value="">Filtrar por sistema operativo</option>
+              <option value="GNU/Linux">GNU/Linux</option>
+              <option value="Windows">Windows</option>
+              <option value="Mac os">Mac os</option>
+            </select>
+          </div>
         </div>
-        <div class="col-6 col-12-xsmall">
-          <select name="category" id="category" [(ngModel)]="strategyFilter">
-            <option value="">Filtrar por estrategia pedagogica</option>
-            <option value="Online">Online</option>
-            <option value="Aprendizaje virtual">Aprendizaje virtual</option>
-            <option value="Distribucion de conocimientos">Distribucion de conocimientos</option>
-            <option value="Opiniones del conocimiento">Opiniones del conocimiento</option>
-            <option value="Dibujo creativo">Dibujo creativo</option>
-            <option value="Aprendizaje autodidacta">Aprendizaje autodidacta</option>
-          </select>
+        <div class="row" style="margin-top: 3px;">
+          <div class="col-3 col-12-small">
+            <button class="button primary small fit" (click)="filterData(filterargs,13)">Buscar</button>
+          </div>
         </div>
-      </div>
+      </form>
     </header>
     <div class="highlights">
       <section *ngFor="let tool of toolsObject | toolsFilter:filterargs | strategyFilter:strategyFilter">
-        <div class="content">
+        <div class="content animated zoomIn">
           <header>
-            <a href="#" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+            <a class="icon fa-vcard-o"><span class="label">Icon</span></a>
             <h3>{{tool.name}}</h3>
           </header>
           <label style="font-size:12px;"> Palabras clave: {{tool.keyWords}}</label>
-          <label style="font-size:12px;"> Estrategia pedagogica: {{tool.pedagogicStrategy}}</label>
+          <label style="font-size:12px;"> Estrategia pedagogica: {{tool.technicalDetails}}</label>
           <p>{{tool.description}}</p>
         </div>
+      </section>
+      <section *ngIf="(toolsObject | toolsFilter:filterargs | strategyFilter:strategyFilter).length === 0">
+        <h3>¡No encontramos resultados para tu búsqueda!</h3>
+        <img src="../../assets/images/perroBuscando.jpg" alt="no encontramos herramientas" height="200"
+             class="animated bounce">
       </section>
     </div>
   </div>

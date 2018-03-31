@@ -10,10 +10,23 @@ export class ToolsFilterPipe implements PipeTransform {
     if (!toolsObject || !filter) {
       return toolsObject;
     }
-    let filterByName = toolsObject.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
-    let filterByKeyWords = toolsObject.filter(item => item.keyWords.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
+    let filterByName: any[] = toolsObject.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
+    let filterByKeyWords: any[] = toolsObject.filter(item => item.keyWords.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
 
-    return filterByName.concat(filterByKeyWords);
+    if(filterByName.toString() === '' && filterByKeyWords.toString() === ''){
+      return [];
+    }
+    else{
+      let results = filterByName.concat(filterByKeyWords);
+      let hash = {};
+      results = results.filter(function(current) {
+        let exists = !hash[current.id] || false;
+        hash[current.id] = true;
+        return exists;
+      });
+      return results;
+    }
+
   }
 
 }

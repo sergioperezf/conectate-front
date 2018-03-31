@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'summernote';
+import 'summernote/dist/summernote-bs4';
 
 @Component({
   selector: 'app-richtext',
   templateUrl: './richtext.component.html',
-  styleUrls: ['./richtext.component.css']
+  styleUrls: ['./richtext.component.scss']
 })
 export class RichtextComponent implements OnInit {
   constructor() {

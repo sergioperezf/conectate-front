@@ -23,7 +23,6 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../src/assets/js/util.js",
         "../src/assets/js/main.js"
       ],
       "environmentSource": "environments/environment.ts",

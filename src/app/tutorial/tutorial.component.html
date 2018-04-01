@@ -14,15 +14,15 @@
             <table>
               <thead>
                 <tr>
-                  <th>Name</th>
+                  <th>Nombre</th>
                   <th>Url</th>
-                  <th>commentary</th>
+                  <th>Commentario</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let tutorials of TutorialList">
                   <td>{{tutorials.name}}</td>
-                  <td>{{tutorials.url}}</td>
+                  <td><a href="{{tutorials.url}}" target="_blank">{{tutorials.url}}</a></td>
                   <td>{{tutorials.commentary}}</td>
                 </tr>
               </tbody>
@@ -40,14 +40,14 @@
       <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm" *ngIf="agregaTutorial" >
         <div class="row">
           <div class="col-6 col-12-xsmall">
-            <input type="text" name="txtNombre" [(ngModel)]="tutorial.name" id="txtNombre" value="" required placeholder="" #txtNombre="ngModel"
+            <input type="text" name="txtNombre" [(ngModel)]="tutorial.name" placeholder="Nombre *" id="txtNombre" value="" required  #txtNombre="ngModel"
             />
             <div [hidden]="txtNombre.valid || txtNombre.pristine" class="alert alert-danger">
               Nombre es requerido.
             </div>
           </div>
           <div class="col-6 col-12-xsmall">
-            <input type="url" name="txtUrl" [(ngModel)]="tutorial.url" id="txtUrl" value="" required placeholder="" #txtUrl="ngModel" />
+            <input type="url" name="txtUrl" [(ngModel)]="tutorial.url" id="txtUrl" required placeholder="Url *" #txtUrl="ngModel" />
             <div [hidden]="txtUrl.valid || txtUrl.pristine" class="alert alert-danger">
               Url es requerida.
             </div>
@@ -57,7 +57,7 @@
 
           <div class="col-6 col-12-xsmall">
             <br/>
-            <textarea name="txtComentario" [(ngModel)]="tutorial.commentary" ng-value="" maxlength="250">
+            <textarea name="txtComentario" [(ngModel)]="tutorial.commentary" ng-value="" maxlength="250" placeholder="Comentario">
                     
             </textarea>
           </div>

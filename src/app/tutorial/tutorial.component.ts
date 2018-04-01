@@ -23,15 +23,22 @@ export class TutorialComponent implements OnInit {
    }
 
 
-  onSubmit(f: NgForm){    
-    console.log(this.tutorial);
+  onSubmit(f: NgForm){     
+    
+    if (f.invalid){
+      alert("Por favor ingrese los datos requeridos")
+      return;
+    }
+    
     this.tutorial.tool =  this.IdHerramienta;
-
     this.tutorialService.addTutorial(this.tutorial).subscribe(
       result =>{
-        console.log(<any>result);
+        alert("Datos guardados correctamente");
+        this.tutorial = new Tutorial();
+        this.getTutoriales();
       }, 
       error => {
+        alert("Error al guardar los datos.")
         console.log(<any>error);
       }
       
@@ -41,8 +48,7 @@ export class TutorialComponent implements OnInit {
   getTutoriales (){
     this.tutorialService.getTutorial(this.IdHerramienta).subscribe(
       result => {
-          this.TutorialList = result;
-          console.log(this.TutorialList)
+          this.TutorialList = result;              
       },
       error => {
         console.log(<any>error);

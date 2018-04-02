@@ -39,7 +39,7 @@
         <div class="content animated zoomIn">
           <header>
             <a class="icon fa-vcard-o"><span class="label">Icon</span></a>
-            <h3>{{tool.name}}</h3>
+            <h3><a [routerLink]="['/herramienta/' +  tool.id + '/tutorial']" >{{tool.name}}</a></h3>
           </header>
           <label style="font-size:12px;"> Palabras clave: {{tool.keyWords}}</label>
           <label style="font-size:12px;"> Estrategia pedagogica: {{tool.technicalDetails}}</label>

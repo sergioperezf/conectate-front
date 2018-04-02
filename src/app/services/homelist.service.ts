@@ -13,4 +13,8 @@ export class HomelistService {
     return this.http.get(this.url);
   }
 
+  getTool(id) : Observable<any> {
+    return this.http.get(this.url + id + '/')
+  }
+
 }

@@ -15,7 +15,8 @@ export class TutorialComponent implements OnInit {
 
   IdHerramienta: number;
   public TutorialList : Tutorial[];
-  public  tutorial:  Tutorial;
+  public tutorial:  Tutorial;
+  public agregaTutorial: boolean = false; 
 
 
   constructor(private ruta:ActivatedRoute, private tutorialService:TutorialService) {
@@ -36,6 +37,7 @@ export class TutorialComponent implements OnInit {
         alert("Datos guardados correctamente");
         this.tutorial = new Tutorial();
         this.getTutoriales();
+        this.agregaTutorial =false;
       }, 
       error => {
         alert("Error al guardar los datos.")

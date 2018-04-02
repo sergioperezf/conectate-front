@@ -26,21 +26,4 @@
 				$body.removeClass('is-preload');
 			}, 100);
 		});
-
-	// Menu.
-  $(window).scroll(function()
-  {
-    if ($(window).scrollTop() >750)
-    {
-      $('#searchFields').addClass('barraFlotante');
-      $('#searchFields').removeClass('row gtr-uniform');
-    }
-    else
-    {
-      //borramos la clase barraFlotante y añadimos la clase barraNormal
-      $('#searchFields').removeClass('barraFlotante');
-      $('#searchFields').addClass('row gtr-uniform');
-    }
-  });
-
 })(jQuery);

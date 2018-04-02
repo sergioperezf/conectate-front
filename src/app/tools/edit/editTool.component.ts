@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomelistService } from '../../services/homelist.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-tool',
@@ -8,17 +9,23 @@ import { HomelistService } from '../../services/homelist.service';
   providers:[HomelistService]
 })
 export class EditToolComponent implements OnInit {
+  toolId: number;
   public name: string;
   public description: string;
 
-  constructor(public toolList: HomelistService) {
+  constructor(private route:ActivatedRoute, public toolList: HomelistService) {
   }
 
   ngOnInit() {
-    this.toolList.getTools().subscribe(
+
+    this.route.params.subscribe( param=> {
+      this.toolId=param['id'];      
+    })
+
+    this.toolList.getTool(this.toolId).subscribe(
       result => {
-          this.name = result[0].name;
-          this.description = result[0].description;
+          this.name = result.name;
+          this.description = result.description;
       },
       error => {
         console.log(<any>error);

@@ -19,7 +19,9 @@ export class RichtextComponent {
   }
 
   ngOnChanges() {
-    this.$textArea.summernote('code', this.value);
+    if (this.$textArea) {
+      this.$textArea.summernote('code', this.value);
+    }
   }
 
   ngOnInit() {

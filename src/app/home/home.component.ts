@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.toolList);
     this.toolList.getTools().subscribe(
       result => {
           this.toolsObject = result;

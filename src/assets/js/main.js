@@ -26,39 +26,4 @@
 				$body.removeClass('is-preload');
 			}, 100);
 		});
-
-	// Menu.
-		$('#menu')
-			.append('<a href="#menu" class="close"></a>')
-			.appendTo($body)
-			.panel({
-				target: $body,
-				visibleClass: 'is-menu-visible',
-				delay: 500,
-				hideOnClick: true,
-				hideOnSwipe: true,
-				resetScroll: true,
-				resetForms: true,
-				side: 'right'
-			});
-/*  $(window).scroll(function()
-  {
-    console.log($(window).scrollTop());
-    if ($(window).scrollTop() >900)
-    {
-      $('#searchFields').addClass('barraFlotante');
-      $('#searchFields').removeClass('row gtr-uniform');
-    }
-    else if($(window).scrollTop() <=936 && $(window).scrollTop() >=831)
-    {
-      $('#searchFields').addClass('barraFlotante');
-      $('#searchFields').removeClass('row gtr-uniform');
-    }
-    else {
-      //borramos la clase barraFlotante y añadimos la clase barraNormal
-      $('#searchFields').removeClass('barraFlotante');
-      $('#searchFields').addClass('row gtr-uniform');
-    }
-  });*/
-
 })(jQuery);

@@ -15,6 +15,14 @@ import { EditToolComponent } from './tools/edit/editTool.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { APP_CONFIG, CONECTATE_CONFIG } from './app.config';
 
+// angular material
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import 'hammerjs';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +30,7 @@ import { APP_CONFIG, CONECTATE_CONFIG } from './app.config';
     HomeComponent,
     ToolsFilterPipe,
     StrategyFilterPipe,
-    RichtextComponent, 
+    RichtextComponent,
     EditToolComponent,
     TutorialComponent
   ],
@@ -30,7 +38,13 @@ import { APP_CONFIG, CONECTATE_CONFIG } from './app.config';
     BrowserModule,
     app_rountig,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatProgressBarModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: CONECTATE_CONFIG }

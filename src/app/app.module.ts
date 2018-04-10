@@ -48,6 +48,7 @@ import {MatTableModule} from '@angular/material/table';
 
 
 import 'hammerjs';
+import { AddToolComponent } from './add-tool/add-tool.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import 'hammerjs';
     StrategyFilterPipe,
     RichtextComponent,
     EditToolComponent,
-    TutorialComponent
+    TutorialComponent,
+    AddToolComponent
   ],
   imports: [
     BrowserModule,

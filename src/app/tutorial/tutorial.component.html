@@ -4,12 +4,12 @@
       <h2>Tutoriales de la herramienta</h2>
 
       <div *ngIf="!agregaTutorial">
-        <div class="col-12" >
+        <div class="col-12">
           <button type="button" class="btn btn-primary" (click)="agregaTutorial=true">Agregar</button>
         </div>
 
         <div class="col-12">
-          <div class="table-wrapper" >
+          <div class="table-wrapper">
             <br/>
             <table>
               <thead>
@@ -22,7 +22,9 @@
               <tbody>
                 <tr *ngFor="let tutorials of TutorialList">
                   <td>{{tutorials.name}}</td>
-                  <td><a href="{{tutorials.url}}" target="_blank">{{tutorials.url}}</a></td>
+                  <td>
+                    <a href="{{tutorials.url}}" target="_blank">{{tutorials.url}}</a>
+                  </td>
                   <td>{{tutorials.commentary}}</td>
                 </tr>
               </tbody>
@@ -33,42 +35,42 @@
       </div>
 
 
-      
 
-      
 
-      <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm" *ngIf="agregaTutorial" >
-        <div class="row">
-          <div class="col-6 col-12-xsmall">
-            <input type="text" name="txtNombre" [(ngModel)]="tutorial.name" placeholder="Nombre *" id="txtNombre" value="" required  #txtNombre="ngModel"
-            />
-            <div [hidden]="txtNombre.valid || txtNombre.pristine" class="alert alert-danger">
-              Nombre es requerido.
-            </div>
-          </div>
-          <div class="col-6 col-12-xsmall">
-            <input type="url" name="txtUrl" [(ngModel)]="tutorial.url" id="txtUrl" required placeholder="Url *" #txtUrl="ngModel" />
-            <div [hidden]="txtUrl.valid || txtUrl.pristine" class="alert alert-danger">
-              Url es requerida.
-            </div>
-          </div>
-        </div>
-        <div class="row">
 
-          <div class="col-6 col-12-xsmall">
-            <br/>
-            <textarea name="txtComentario" [(ngModel)]="tutorial.commentary" ng-value="" maxlength="250" placeholder="Comentario">
-                    
-            </textarea>
-          </div>
+      <div class="container-fluid offset-md-2">
+
+      <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm" *ngIf="agregaTutorial">
+          <div class="example-container">
+        <div class="row  ">          
+            <mat-form-field class="col-12 col-md-4">
+              <input matInput type="text"  name="txtNombre" [(ngModel)]="tutorial.name" placeholder="Nombre" id="txtNombre" value="" required #txtNombre="ngModel"
+              />
+              <mat-error  *ngIf="txtNombre.invalid">Nombre es requerido.</mat-error>
+            </mat-form-field>
+         
+            <mat-form-field class="col-12 col-md-4">
+              <input matInput type="url" name="txtUrl" [(ngModel)]="tutorial.url" id="txtUrl" required placeholder="Url" #txtUrl="ngModel" />              
+              <mat-error *ngIf="txtUrl.invalid">Url es requerida</mat-error>
+            </mat-form-field>          
         </div>
 
-        <div class="col-6 col-12-xsmall">
-          <br/>
-          <button type="button" class="btn btn-danger" (click)="agregaTutorial=false">Cancelar</button>
-          <button type="submit" class="btn btn-success" [disabled]="!frmTutorial.form.valid">Guardar</button>
+        <div class="row">          
+            <mat-form-field class="col-6 col-md-4">
+              <textarea matInput name="txtComentario" [(ngModel)]="tutorial.commentary" ng-value="" maxlength="250" placeholder="Comentario">                    
+              </textarea>
+            </mat-form-field>          
+        </div>
+
+        <div class="col-12 col-md-4">          
+          <button mat-raised-button color="warn" type="button"  (click)="agregaTutorial=false" >
+              <mat-icon aria-label="icon-button with a heart icon"></mat-icon>
+            Cancelar</button>
+          <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTutorial.form.valid" >Guardar</button>
+        </div>
         </div>
       </form>
+      </div>
 
     </header>
   </div>

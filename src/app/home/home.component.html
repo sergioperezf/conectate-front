@@ -1,10 +1,13 @@
 <!-- Banner -->
 <div class="container">
-
   <section>
-    <div>
-      <h1>Conectate</h1>
-      <p>Tecnología y estrategias pedagogicas para impulsar la educación<br /></p>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h1 class="home-title">Conectate</h1>
+        </div>
+      <div class="col-md-6 offset-md-2">
+        <p class="home-subtitle">Tecnología y estrategias pedagogicas para impulsar la educación<br /></p>
+      </div>
     </div>
     <!--<video autoplay loop muted playsinline src="assets/images/Rain_Fire.mp4"></video>-->
   </section>
@@ -17,15 +20,21 @@
             <mat-form-field class="col-md-4">
               <input matInput type="text" name="herramienta" [(ngModel)]="filterargs" id="name" value="" placeholder="Herramientas, palabras clave" (keypress)="filterData(filterargs,$event.keyCode)" />
             </mat-form-field>
-            <mat-form-field>
-              <mat-select placeholder="Filtrar por sistema operativo" [(ngModel)]="strategyFilter">
+            <mat-form-field class="col-md-4">
+              <mat-select  placeholder="Filtrar por sistema operativo" [(ngModel)]="strategyFilter">
                 <mat-option value="GNU/Linux">GNU/Linux</mat-option>
                 <mat-option value="Windows">Windows</mat-option>
                 <mat-option value="Mac os">Mac os</mat-option>
               </mat-select>
             </mat-form-field>
+            <button mat-mini-fab color="primary">
+              <span matTooltip="Busqueda avanzada!">
+                <i class="fab fa-searchengin"></i>
+              </span>
+            </button>
             <br>
-            <button mat-raised-button color="primary">Limpiar filtros</button>
+            <button mat-raised-button color="primary" (click)="cleanFilters()">Limpiar filtros</button>
+            <button mat-raised-button color="accent" (click)="filterData(filterargs,13)">Buscar</button>
           </div>
         </div>
       </header>
@@ -39,8 +48,8 @@
           </mat-card-title>
           <mat-card-content>
             <label style="font-size:12px;"> Palabras clave: {{tool.keyWords}}</label>
-            <label style="font-size:12px;"> Estrategia pedagogica: {{tool.technicalDetails}}</label>
-            <p>{{tool.description}}</p>
+            <label style="font-size:12px;"> Detalles técnicos: {{tool.technicalDetails}}</label>
+            <p>{{tool.description | limitOfText}}</p>
           </mat-card-content>
         </mat-card>
 
@@ -52,24 +61,3 @@
       </div>
   </section>
 </div>
-
-
-
-<!--
-<form>
-  <h2>Herramientas para la educación</h2>
-  <p>Encuentra toda la información necesaria sobre herramientas que pueden ayudarte a implementar nuevas estrategias de enseñanza.</p>
-  <mat-form-field class="example-full-width">
-    <input type="text" name="herramienta" [(ngModel)]="filterargs" id="name" value="" placeholder="Herramientas, palabras clave" (keypress)="filterData(filterargs,$event.keyCode)" />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-select placeholder="Favorite food">
-      <mat-option id="category" [(ngModel)]="strategyFilter">
-        <option value="">Filtrar por sistema operativo</option>
-        <option value="GNU/Linux">GNU/Linux</option>
-        <option value="Windows">Windows</option>
-        <option value="Mac os">Mac os</option>
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>-->

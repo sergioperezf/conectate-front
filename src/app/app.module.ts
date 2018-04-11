@@ -48,6 +48,7 @@ import {MatTableModule} from '@angular/material/table';
 
 
 import 'hammerjs';
+import { LimitOfTextPipe } from './home/limit-of-text.pipe';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import 'hammerjs';
     StrategyFilterPipe,
     RichtextComponent,
     EditToolComponent,
-    TutorialComponent
+    TutorialComponent,
+    LimitOfTextPipe
   ],
   imports: [
     BrowserModule,

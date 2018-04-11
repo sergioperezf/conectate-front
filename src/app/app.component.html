@@ -1,4 +1,23 @@
-
+<button mat-fab color="primary" class="menu-button" [matMenuTriggerFor]="appMenu">
+  <i class="fas fa-bars"></i>
+</button>
+<mat-menu #appMenu="matMenu" class="menu-items animated fadeIn">
+  <button mat-menu-item>
+    <a href="">Help</a>
+  </button>
+  <button mat-menu-item>
+    <a href="">Help</a>
+  </button>
+  <button mat-menu-item>
+    <a href="">Help</a>
+  </button>
+  <button mat-menu-item>
+    <a href="">Help</a>
+  </button>
+  <button mat-menu-item>
+    <a href="">Help</a>
+  </button>
+</mat-menu>
 <router-outlet>
 </router-outlet>
 

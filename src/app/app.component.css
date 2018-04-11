@@ -1,0 +1,14 @@
+.menu-button{
+  position: fixed;
+  top:5%;
+  left: 5%;
+  z-index: 10;
+}
+>>> .menu-items .mat-menu-content {
+  background: rgba(167, 234, 236, 0.59);
+  color: #000000;
+  width: 200px;
+}
+.menu-items > a{
+  text-decoration: none;
+}

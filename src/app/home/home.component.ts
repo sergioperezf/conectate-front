@@ -58,4 +58,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  cleanFilters(){
+    this.filterargs="";
+    this.strategyFilter="";
+  }
+
 }

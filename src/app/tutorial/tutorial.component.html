@@ -41,7 +41,7 @@
       <div class="container-fluid offset-md-2">
 
       <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm" *ngIf="agregaTutorial">
-          <div class="example-container">
+          
         <div class="row  ">          
             <mat-form-field class="col-12 col-md-4">
               <input matInput type="text"  name="txtNombre" [(ngModel)]="tutorial.name" placeholder="Nombre" id="txtNombre" value="" required #txtNombre="ngModel"
@@ -62,13 +62,15 @@
             </mat-form-field>          
         </div>
 
-        <div class="col-12 col-md-4">          
+        <div class="col-12 col-md-8 offset-md-4">          
           <button mat-raised-button color="warn" type="button"  (click)="agregaTutorial=false" >
-              <mat-icon aria-label="icon-button with a heart icon"></mat-icon>
+              <mat-icon aria-label="icon-button">clear</mat-icon>
             Cancelar</button>
-          <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTutorial.form.valid" >Guardar</button>
+          <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTutorial.form.valid" >
+              <mat-icon aria-label="icon-button">send</mat-icon>
+            Guardar</button>
         </div>
-        </div>
+        
       </form>
       </div>
 

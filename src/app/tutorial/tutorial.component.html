@@ -42,7 +42,7 @@
 
       <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm" *ngIf="agregaTutorial">
           
-        <div class="row  ">          
+        <div class="row">          
             <mat-form-field class="col-12 col-md-4">
               <input matInput type="text"  name="txtNombre" [(ngModel)]="tutorial.name" placeholder="Nombre" id="txtNombre" value="" required #txtNombre="ngModel"
               />

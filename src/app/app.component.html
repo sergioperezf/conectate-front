@@ -1,24 +1,17 @@
-<button mat-fab color="primary" class="menu-button" [matMenuTriggerFor]="appMenu">
-  <i class="fas fa-bars"></i>
-</button>
-<mat-menu #appMenu="matMenu" class="menu-items animated fadeIn">
-  <button mat-menu-item>
-    <a href="">Help</a>
-  </button>
-  <button mat-menu-item>
-    <a href="">Help</a>
-  </button>
-  <button mat-menu-item>
-    <a href="">Help</a>
-  </button>
-  <button mat-menu-item>
-    <a href="">Help</a>
-  </button>
-  <button mat-menu-item>
-    <a href="">Help</a>
-  </button>
-</mat-menu>
-<router-outlet>
-</router-outlet>
+<mat-toolbar color="primary">    
+    <button  mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon class="conectate-icon">menu</mat-icon>
+    </button>    
+    <span class="conectate-spacer"></span>
+    <span>Conecta-Te</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" #sidenav [(opened)]="opened">Mi Menu</mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+    
 
 

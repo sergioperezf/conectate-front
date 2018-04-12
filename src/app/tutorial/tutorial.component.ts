@@ -4,6 +4,7 @@ import {Tutorial} from '../models/tutorial.models'
 import { TutorialService } from '../services/tutorial.service';
 import { NgForm } from '@angular/forms';
 import { error } from 'util';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-tutorial',
@@ -19,28 +20,35 @@ export class TutorialComponent implements OnInit {
   public agregaTutorial: boolean = false; 
 
 
-  constructor(private ruta:ActivatedRoute, private tutorialService:TutorialService) {
+  constructor(private ruta:ActivatedRoute, private tutorialService:TutorialService, 
+    public snackBar: MatSnackBar) {
       this.tutorial =  new Tutorial();
    }
 
 
   onSubmit(f: NgForm){     
     
-    if (f.invalid){
-      alert("Por favor ingrese los datos requeridos")
+    if (f.invalid){      
+      this.snackBar.open("Por favor ingrese los datos requeridos. ", "Validación", {
+        duration : 5000
+      })
       return;
     }
     
     this.tutorial.tool =  this.IdHerramienta;
     this.tutorialService.addTutorial(this.tutorial).subscribe(
       result =>{
-        alert("Datos guardados correctamente");
+        this.snackBar.open("Datos guardados correctamente. ", "Hecho", {
+          duration : 5000
+        })
         this.tutorial = new Tutorial();
         this.getTutoriales();
         this.agregaTutorial =false;
       }, 
       error => {
-        alert("Error al guardar los datos.")
+        this.snackBar.open("Error al guardar datos del tutorial", "Error", {
+           duration :5000
+        })
         console.log(<any>error);
       }
       

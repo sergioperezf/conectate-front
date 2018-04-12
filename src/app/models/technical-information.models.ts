@@ -4,6 +4,7 @@ export class TechnicalInformation {
     public version: any;
     public description :string;
     public integrationLms : string;
+    public state :string;
 
     constructor(){}
 

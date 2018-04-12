@@ -7,6 +7,7 @@ export class Tool {
     public urlSite :string;
     public typeLicense :string;
     public urlDownload: string;
+    public state : string;
     public technicalInformation : TechnicalInformation[] = [];
 
     constructor(){}

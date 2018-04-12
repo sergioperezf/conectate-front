@@ -1,83 +1,98 @@
-<div class=".container-fluid">
+<div class="container-fluid">    
     <div class="row">
         <div class="col-12  col-md-12">
-            <form (ngSubmit)="onSubmit(frmTool)" #frmTool="ngForm">
-                <mat-form-field class="col-12 col-md-12">
-                    <input matInput type="text"  name="txtNombre" [(ngModel)]="tool.name" placeholder="Nombre"
-                         id="txtNombre" value="" required #txtNombre="ngModel"/>
-                    <mat-error  *ngIf="txtNombre.invalid">Nombre es requerido.</mat-error>
-                </mat-form-field>
-
-                <mat-form-field class="col-6 col-md-12">
-                    <textarea matInput name="txtDescription" [(ngModel)]="tool.description" ng-value="" maxlength="350" placeholder="Descripción" required #txtDescription="ngModel">                    
-                    </textarea>
-                    <mat-error  *ngIf="txtDescription.invalid">Descripción es requerida.</mat-error>
-                </mat-form-field> 
-
-                <mat-form-field class="col-12 col-md-12">
-                    <input matInput type="url" name="txtUrl" [(ngModel)]="tool.urlSite" id="txtUrl" 
-                        required placeholder="Url Sitio" #txtUrl="ngModel"/>              
-                    <mat-error *ngIf="txtUrl.invalid">Url es requerida</mat-error>
-                </mat-form-field>
+            <h2>{{title}}</h2>
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                     Información básica
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Recuerde que todos los campos con * son obligatorios.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
                 
-                <mat-form-field class="col-12 col-md-12">
-                    <input matInput type="url" name="txtUrlDownload" [(ngModel)]="tool.urlDownload" id="txtUrlDownload" 
-                        placeholder="Url Descarga" #txtUrlDownload="ngModel" />                    
-                </mat-form-field>
+                <form (ngSubmit)="onSubmit(frmTool)" #frmTool="ngForm">
+                        <mat-form-field class="col-12 col-md-12">
+                            <input matInput type="text"  name="txtNombre" [(ngModel)]="tool.name" placeholder="Nombre"
+                                 id="txtNombre" value="" required #txtNombre="ngModel"/>
+                            <mat-error  *ngIf="txtNombre.invalid">Nombre es requerido.</mat-error>
+                        </mat-form-field>
+        
+                        <mat-form-field class="col-6 col-md-12">
+                            <textarea matInput name="txtDescription" [(ngModel)]="tool.description" ng-value="" rows="4" maxlength="350" placeholder="Descripción" required #txtDescription="ngModel">                    
+                            </textarea>
+                            <mat-error  *ngIf="txtDescription.invalid">Descripción es requerida.</mat-error>
+                        </mat-form-field> 
+        
+                        <mat-form-field class="col-12 col-md-12">
+                            <input matInput type="url" name="txtUrl" [(ngModel)]="tool.urlSite" id="txtUrl" 
+                                required placeholder="Url Sitio" #txtUrl="ngModel"/>              
+                            <mat-error *ngIf="txtUrl.invalid">Url es requerida</mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="col-12 col-md-12">
+                            <input matInput type="url" name="txtUrlDownload" [(ngModel)]="tool.urlDownload" id="txtUrlDownload" 
+                                placeholder="Url Descarga" #txtUrlDownload="ngModel" />                    
+                        </mat-form-field>
+        
+                        <mat-form-field class="col-12 col-md-12">
+                            <input matInput type="text"  name="txtLicense" [(ngModel)]="tool.typeLicense" placeholder="Tipo de Licencia"
+                                    id="txtLicense" value="" required #txtLicense="ngModel"/>
+                            <mat-error  *ngIf="txtLicense.invalid">Tipo de licencia es requerida.</mat-error>
+                        </mat-form-field>
+        
+                        <div class="row" style="display: none">
+                            <div class="col-12 col-md-8 offset-md-2">
+                                <mat-table #table [dataSource]="tool.technicalInformation">
+                                    <ng-container matColumnDef="id">
+                                        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="systems">
+                                        <mat-header-cell *matHeaderCellDef> S. Operativo. </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.systems}} </mat-cell>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="version">
+                                        <mat-header-cell *matHeaderCellDef> Version </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.version}} </mat-cell>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="description">
+                                        <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="integrationLms">
+                                        <mat-header-cell *matHeaderCellDef> Integración Lms </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.integrationLms}} </mat-cell>
+                                    </ng-container>
+        
+                                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                                </mat-table>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                           
+                            <div class="col-12 col-md-8 offset-md-4">   
+                                    <br/>       
+                                <button mat-raised-button color="warn" type="button"  (click)="agregaTutorial=false" >
+                                    <mat-icon aria-label="icon-button">clear</mat-icon>
+                                    Cancelar</button>
+                                <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTool.form.valid" >
+                                    <mat-icon aria-label="icon-button">send</mat-icon>
+                                    Guardar</button>
+                            </div>
+                        </div>                                        
+                    </form>
+            
+            </mat-expansion-panel>
 
-                <mat-form-field class="col-12 col-md-12">
-                    <input matInput type="text"  name="txtLicense" [(ngModel)]="tool.typeLicense" placeholder="Tipo de Licencia"
-                            id="txtLicense" value="" required #txtLicense="ngModel"/>
-                    <mat-error  *ngIf="txtLicense.invalid">Tipo de licencia es requerida.</mat-error>
-                </mat-form-field>
-
-                <div class="row">
-                    <div class="col-12 col-md-8 offset-md-2">
-                        <mat-table #table [dataSource]="tool.technicalInformation">
-                            <ng-container matColumnDef="id">
-                                <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-                                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-                            </ng-container>
-
-                            <ng-container matColumnDef="systems">
-                                <mat-header-cell *matHeaderCellDef> S. Operativo. </mat-header-cell>
-                                <mat-cell *matCellDef="let element"> {{element.systems}} </mat-cell>
-                            </ng-container>
-
-                            <ng-container matColumnDef="version">
-                                <mat-header-cell *matHeaderCellDef> Version </mat-header-cell>
-                                <mat-cell *matCellDef="let element"> {{element.version}} </mat-cell>
-                            </ng-container>
-
-                            <ng-container matColumnDef="description">
-                                <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
-                                <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
-                            </ng-container>
-                            
-                            <ng-container matColumnDef="integrationLms">
-                                <mat-header-cell *matHeaderCellDef> Integración Lms </mat-header-cell>
-                                <mat-cell *matCellDef="let element"> {{element.integrationLms}} </mat-cell>
-                            </ng-container>
-
-                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                        </mat-table>
-                    </div>
-                </div>
-
-                <div class="row">
-                   
-                    <div class="col-12 col-md-8 offset-md-4">   
-                            <br/>       
-                        <button mat-raised-button color="warn" type="button"  (click)="agregaTutorial=false" >
-                            <mat-icon aria-label="icon-button">clear</mat-icon>
-                            Cancelar</button>
-                        <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTool.form.valid" >
-                            <mat-icon aria-label="icon-button">send</mat-icon>
-                            Guardar</button>
-                    </div>
-                </div>                                        
-            </form>
+            
         </div>
     </div>
 </div>

@@ -45,10 +45,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
-
-
 import 'hammerjs';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
+import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.component';
 
 
 @NgModule({
@@ -60,7 +59,8 @@ import { LimitOfTextPipe } from './home/limit-of-text.pipe';
     RichtextComponent,
     EditToolComponent,
     TutorialComponent,
-    LimitOfTextPipe
+    LimitOfTextPipe,
+    AddDrafExamplesComponent
   ],
   imports: [
     BrowserModule,
@@ -100,6 +100,9 @@ import { LimitOfTextPipe } from './home/limit-of-text.pipe';
   providers: [
     { provide: APP_CONFIG, useValue: CONECTATE_CONFIG }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AddDrafExamplesComponent
+  ]
 })
 export class AppModule { }

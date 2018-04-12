@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HomelistService} from "../services/homelist.service";
+import { AddDrafExamplesComponent } from '../add-draf-examples/add-draf-examples.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,7 @@ export class HomeComponent implements OnInit {
   public toolsObject:any[]=[];
   public filterargs: String ="";
   public strategyFilter: String ="";
-  constructor(public toolList:HomelistService) {
+  constructor(public toolList: HomelistService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -24,6 +26,17 @@ export class HomeComponent implements OnInit {
         console.log(<any>error);
       }
     );
+  }
+
+  abrirDialogo(): void {
+    let dialogRef = this.dialog.open(AddDrafExamplesComponent, {
+      width: '60%',
+      height: '80%',
+      data: { url: 'a', id: 1}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(dialogRef);
+    });
   }
 
   filterData(filter,keyCode){
@@ -57,10 +70,4 @@ export class HomeComponent implements OnInit {
       );
     }
   }
-
-  cleanFilters(){
-    this.filterargs="";
-    this.strategyFilter="";
-  }
-
 }

@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
 
   abrirDialogo(): void {
     let dialogRef = this.dialog.open(AddDrafExamplesComponent, {
-      width: '60%',
-      height: 'auto',
+      width: '50%',
+      height: '90%',
       data: { url: 'a', id: 1}
     });
     dialogRef.afterClosed().subscribe(result => {

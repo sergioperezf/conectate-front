@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Inject } from '@angular/core';
 import { Example } from '../models/example.models';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-draf-examples',
@@ -17,7 +16,24 @@ export class AddDrafExamplesComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: any, public newExample: Example) { }
 
   ngOnInit() {
-    console.log('Iniciando ventana de dialogo');
+    this.newExample.resources=[];
+    this.newExample.resources.push({
+      'name':'',
+      'link':''
+    });
+    console.log(this.newExample);
+  }
+  addResource() {
+    debugger;
+    this.newExample.resources.push({
+      'name':'',
+      'link':''
+    });
+  }
+  deleteResource(index) {
+    debugger;
+    delete this.newExample.resources[index];
+    console.log(this.newExample.resources.length);
   }
 
 }

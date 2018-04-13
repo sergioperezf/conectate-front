@@ -4,6 +4,6 @@ export class Example {
   public description: string;
   public pedagogicStrategy: number;
   public instructions: string;
-  public resources: number[] ;
+  public resources: any[] ;
   constructor(){}
 }

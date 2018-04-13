@@ -1,8 +1,9 @@
 export class Example {
   public name: string;
+  public discipline: number;
   public description: string;
-  public videos: string;
-  public commentary:number;
-  public documents: FormData;
+  public pedagogicStrategy: number;
+  public instructions: string;
+  public resources: number[] ;
   constructor(){}
 }

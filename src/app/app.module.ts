@@ -60,6 +60,7 @@ import { LimitOfTextPipe } from './home/limit-of-text.pipe';
     StrategyFilterPipe,
     RichtextComponent,
     EditToolComponent,
+    TutorialComponent,
     AddToolComponent
     LimitOfTextPipe
   ],

@@ -61,7 +61,7 @@ import { LimitOfTextPipe } from './home/limit-of-text.pipe';
     RichtextComponent,
     EditToolComponent,
     TutorialComponent,
-    AddToolComponent
+    AddToolComponent,
     LimitOfTextPipe
   ],
   imports: [

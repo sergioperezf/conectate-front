@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-tool',
+  providers : [ToolService],
   templateUrl: './add-tool.component.html',
   styleUrls: ['./add-tool.component.css']
 })

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router'
-import {Tutorial} from '../models/tutorial.models'
+import { Tutorial} from '../models/tutorial.models'
 import { TutorialService } from '../services/tutorial.service';
 import { NgForm } from '@angular/forms';
 import { error } from 'util';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-tutorial',
@@ -35,7 +35,7 @@ export class TutorialComponent implements OnInit {
       return;
     }
     
-    this.tutorial.tool =  this.IdHerramienta;
+    this.tutorial.toolId =  this.IdHerramienta;
     this.tutorialService.addTutorial(this.tutorial).subscribe(
       result =>{
         this.snackBar.open("Datos guardados correctamente. ", "Hecho", {

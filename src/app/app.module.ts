@@ -50,6 +50,7 @@ import {MatTableModule} from '@angular/material/table';
 import 'hammerjs';
 import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
+import { DetailToolComponent } from './detail-tool/detail-tool.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { LimitOfTextPipe } from './home/limit-of-text.pipe';
     EditToolComponent,
     TutorialComponent,
     AddToolComponent,
-    LimitOfTextPipe
+    LimitOfTextPipe,
+    DetailToolComponent
   ],
   imports: [
     BrowserModule,

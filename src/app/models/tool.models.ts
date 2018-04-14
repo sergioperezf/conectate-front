@@ -1,14 +1,17 @@
-import { TechnicalInformation } from  './technical-information.models'
+import { OperativeSystems } from  './operative-systems.models'
 
 export class Tool {
     public id:number;
     public name:string;
     public description :string;
+    public usageRestrictions : string;
     public urlSite :string;
-    public typeLicense :string;
     public urlDownload: string;
+    public licenseType :string;
+    public version: string;    
     public state : string;
-    public technicalInformation : TechnicalInformation[] = [];
+    public integrationLms: string;
+    public systems : OperativeSystems[] = [];
 
     constructor(){}
 }

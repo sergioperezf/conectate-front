@@ -7,10 +7,19 @@
 </mat-toolbar>
 
 <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" #sidenav [(opened)]="opened">Mi Menu</mat-sidenav>
+    <mat-sidenav mode="side" #sidenav [(opened)]="opened">   
+        <ul class="nav">
+            <li class="nav-item" >
+                <a class="nav-link" [routerLink]="['/home']" >Inicio</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a>
+            </li>
+        </ul>             
+    </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>
-    </mat-sidenav-content>
+    </mat-sidenav-content>    
 </mat-sidenav-container>
     
 

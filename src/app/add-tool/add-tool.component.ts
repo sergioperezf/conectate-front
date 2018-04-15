@@ -3,7 +3,7 @@ import { Tool } from '../models/tool.models';
 import {OperativeSystems } from '../models/operative-systems.models';
 import {MatSnackBar} from '@angular/material';
 import {ToolService} from '../services/tool.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-tool',
@@ -12,16 +12,18 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-tool.component.css']
 })
 export class AddToolComponent implements OnInit {
-
-  displayedColumns = ['id', 'systems', 'version', 'description', 'integrationLms'];
+  
   public tool : Tool;
   private title: string;
+  private systems : OperativeSystems[] = [];
+  private systemSel = new FormControl();
 
   constructor(private toolService:ToolService, 
     public snackBar: MatSnackBar) {
     this.tool = new Tool();
     this.tool.systems = ELEMENT_DATA;
     this.title = "Agregar herramienta";
+    this.systems = ELEMENT_DATA;
   }
 
   onSubmit(f: NgForm){     
@@ -42,7 +44,7 @@ export class AddToolComponent implements OnInit {
         this.tool = new Tool();        
       }, 
       error => {
-        this.snackBar.open("Error al guardar datos del tutorial", "Error", {
+        this.snackBar.open("Error al guardar datos de la herramienta", "Error", {
            duration :5000
         })
         console.log(<any>error);
@@ -58,8 +60,7 @@ export class AddToolComponent implements OnInit {
 }
 
 const ELEMENT_DATA: OperativeSystems[] = [
-  {id: 6, name: 'Carbon' },
-  {id: 7, name: 'Nitrogen' },
-  {id: 8, name: 'Oxygen' },
-  {id: 9, name: 'Fluorine' }  
+  {id: 6, name: 'Windows' },
+  {id: 7, name: 'Mac OS' },
+  {id: 8, name: 'Linux' }
 ];

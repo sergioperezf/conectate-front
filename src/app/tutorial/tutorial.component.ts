@@ -23,6 +23,7 @@ export class TutorialComponent implements OnInit {
   constructor(private ruta:ActivatedRoute, private tutorialService:TutorialService, 
     public snackBar: MatSnackBar) {
       this.tutorial =  new Tutorial();
+      this.TutorialList  = ELEMENT_Tutorial;
    }
 
 
@@ -74,3 +75,12 @@ export class TutorialComponent implements OnInit {
   }
 
 }
+
+const ELEMENT_Tutorial: Tutorial[] = [
+  {id: 6, name: 'Como usar la herramienta', objective  :"These utility classes float an element to the left or right, or disable floating, based on the current viewport size using the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our grid system", toolId :1, url: "https://material.angular.io/components/expansion/overview" },
+  {id: 7, name: 'Agregar una tarea', objective  :"manejar la información", toolId :1, url: "https://material.angular.io/components/expansion/overview"  },
+  {id: 8, name: 'Probando informacion',  objective  :"manejar la información", toolId :1, url: "https://material.angular.io/components/expansion/overview"  },
+  {id: 7, name: 'Agregar una tarea', objective  :"manejar la información", toolId :1, url: "https://material.angular.io/components/expansion/overview"  },
+  {id: 8, name: 'Probando informacion',  objective  :"manejar la información", toolId :1, url: "https://material.angular.io/components/expansion/overview"  },
+  {id: 6, name: 'Como usar la herramienta', objective  :"These utility classes float an element to the left or right, or disable floating, based on the current viewport size using the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our grid system", toolId :1, url: "https://material.angular.io/components/expansion/overview" }
+];

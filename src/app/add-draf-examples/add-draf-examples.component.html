@@ -3,12 +3,12 @@
     <h1>Herramienta x</h1>
   </div>
   <div class="col-md-12">
-    <form>
-      <mat-form-field class="col-md-5">
-        <input matInput type="text" name="name" id="name" [(ngModel)]="newExample.name" value="" placeholder="Nombre"/>
+    <form #exampleForm="ngForm">
+      <mat-form-field class="col-md-5" >
+        <input matInput type="text" required #name name="name" id="name" [(ngModel)]="newExample.name" value="" placeholder="Nombre"/>
       </mat-form-field>
       <mat-form-field class="col-md-6">
-        <mat-select placeholder="Disciplina" [(ngModel)]="newExample.discipline"
+        <mat-select #discipline placeholder="Disciplina" required [(ngModel)]="newExample.discipline"
                     name="discipline">
           <mat-option>None</mat-option>
           <mat-option value="option1">Option 1</mat-option>
@@ -17,11 +17,11 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field class="col-md-5">
-        <textarea matInput placeholder="Descripción" name="description" [(ngModel)]="newExample.description"></textarea>
+        <textarea #description  required matInput placeholder="Descripción" name="description" [(ngModel)]="newExample.description"></textarea>
       </mat-form-field>
       <mat-form-field class="col-md-6">
-        <mat-select placeholder="Estrategia pedagogica" [(ngModel)]="newExample.pedagogicStrategy"
-                    name="pedagogicStrategy">
+        <mat-select #pedagogicStrategy placeholder="Estrategia pedagogica" [(ngModel)]="newExample.pedagogicStrategy"
+                    name="pedagogicStrategy" required>
           <mat-option>None</mat-option>
           <mat-option value="option1">Option 1</mat-option>
           <mat-option value="option2">Option 2</mat-option>
@@ -29,8 +29,8 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field class="col-md-12">
-        <textarea matInput placeholder="Instrucciones" name="Instrucciones"
-                  [(ngModel)]="newExample.instructions"></textarea>
+        <textarea matInput #instructions placeholder="Instrucciones" name="Instrucciones"
+                  [(ngModel)]="newExample.instructions" required></textarea>
       </mat-form-field>
       <form [formGroup]="invoiceForm">
         <fieldset class="col-md-12 resource-table" formArrayName="itemRows">
@@ -53,7 +53,7 @@
       </div>
       <br><br>
       <div class="col-md-12">
-        <button mat-raised-button color="primary" (click)="buildAndSend()">Guardar borrador</button>
+        <button mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >Guardar borrador</button>
         <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancelar</button>
       </div>
     </form>

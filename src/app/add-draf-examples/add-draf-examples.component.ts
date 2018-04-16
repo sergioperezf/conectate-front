@@ -37,7 +37,12 @@ export class AddDrafExamplesComponent implements OnInit {
     control.removeAt(index);
   }
   buildAndSend(){
-    this.newExample.resources = this.invoiceForm.value.itemRows;
+    if(this.invoiceForm.value.itemRows[0].name === '') {
+      this.newExample.resources= [];
+    }
+    else{
+      this.newExample.resources =this.invoiceForm.value.itemRows;
+    }
     console.log(this.newExample);
   }
 }

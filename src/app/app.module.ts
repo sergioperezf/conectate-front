@@ -48,7 +48,7 @@ import {MatTableModule} from '@angular/material/table';
 import 'hammerjs';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
 import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -66,6 +66,7 @@ import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.
     BrowserModule,
     app_rountig,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -98,7 +99,7 @@ import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.
     MatTableModule
   ],
   providers: [
-    { provide: APP_CONFIG, useValue: CONECTATE_CONFIG }
+    { provide: APP_CONFIG, useValue: CONECTATE_CONFIG },
   ],
   bootstrap: [AppComponent],
   entryComponents: [

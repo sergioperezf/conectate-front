@@ -45,13 +45,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
-
-
 import 'hammerjs';
 import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
 import { DetailToolComponent } from './detail-tool/detail-tool.component';
-
+import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +62,8 @@ import { DetailToolComponent } from './detail-tool/detail-tool.component';
     TutorialComponent,
     AddToolComponent,
     LimitOfTextPipe,
-    DetailToolComponent
+    DetailToolComponent,
+    AddDrafExamplesComponent
   ],
   imports: [
     BrowserModule,
@@ -103,8 +102,11 @@ import { DetailToolComponent } from './detail-tool/detail-tool.component';
     MatTableModule
   ],
   providers: [
-    { provide: APP_CONFIG, useValue: CONECTATE_CONFIG }
+    { provide: APP_CONFIG, useValue: CONECTATE_CONFIG },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AddDrafExamplesComponent
+  ]
 })
 export class AppModule { }

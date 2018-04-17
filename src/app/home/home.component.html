@@ -22,18 +22,18 @@
             </mat-form-field>
             <mat-form-field class="col-md-4">
               <mat-select  placeholder="Filtrar por sistema operativo" [(ngModel)]="strategyFilter">
+                <mat-option></mat-option>
                 <mat-option value="GNU/Linux">GNU/Linux</mat-option>
                 <mat-option value="Windows">Windows</mat-option>
                 <mat-option value="Mac os">Mac os</mat-option>
               </mat-select>
             </mat-form-field>
-            <button mat-mini-fab color="primary">
+            <button mat-mini-fab color="primary" (click)="abrirDialogo()">
               <span matTooltip="Busqueda avanzada!">
                 <i class="fab fa-searchengin"></i>
               </span>
             </button>
             <br>
-            <button mat-raised-button color="primary" (click)="cleanFilters()">Limpiar filtros</button>
             <button mat-raised-button color="accent" (click)="filterData(filterargs,13)">Buscar</button>
           </div>
         </div>

@@ -17,6 +17,7 @@ export class AddDrafExamplesComponent implements OnInit {
   public invoiceForm: FormGroup;
   public hideContent: Boolean = true;
   public errorMessage: String;
+  public buttonMessage: String = 'Guardar borrador';
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public newExample: Example, private _fb: FormBuilder, public exampleService: ExamplesService, public dialog: MatDialog) { }
 
@@ -42,6 +43,8 @@ export class AddDrafExamplesComponent implements OnInit {
   }
   buildAndSend() {
     this.hideContent = false;
+    this.errorMessage ="";
+    this.buttonMessage ="Guardar borrador";
 
     if (this.invoiceForm.value.itemRows[0].name === '') {
       this.newExample.resources= [];
@@ -53,6 +56,7 @@ export class AddDrafExamplesComponent implements OnInit {
       console.log(data);
       this.dialog.closeAll();
     }, (err) => {
+      this.buttonMessage ="Reintentar";
       this.errorMessage = 'Ocurrio un error almacenando los datos Status: '+ err.status+ " Mensaje: " + err.message;
     });
     console.log(this.newExample);

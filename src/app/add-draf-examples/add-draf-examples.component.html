@@ -63,8 +63,8 @@
   </div>
   <div class="col-md-12">
     <mat-progress-bar mode="indeterminate" [hidden]="hideContent"></mat-progress-bar>
-    <br><br>
-    <button mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >Guardar borrador</button>
+    <br>
+    <button mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >{{this.buttonMessage}}</button>
     <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancelar</button>
   </div>
 </div>

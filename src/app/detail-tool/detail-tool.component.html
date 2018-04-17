@@ -111,7 +111,12 @@
                 </mat-toolbar-row>
               </mat-toolbar>
             </div>
-            <button mat-raised-button color="accent" (click)="openDialog()">Agregar actividad</button>
+            <mat-action-row>
+              <button mat-raised-button  color="primary" (click)="openDialog()">
+                <mat-icon aria-label="">add</mat-icon>Agregar actividad
+              </button>
+            </mat-action-row>
+
           </mat-expansion-panel>
       </div>
   </div>

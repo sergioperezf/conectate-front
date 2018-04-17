@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     let dialogRef = this.dialog.open(AddDrafExamplesComponent, {
       width: '50%',
       height: '90%',
-      data: { url: 'a', id: 1}
+      data: { title: 'Moodle - foros', id: 1}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(dialogRef);

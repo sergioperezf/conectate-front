@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-12">
-    <h1>Herramienta x</h1>
+    <h1>{{data.title}}</h1>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12" [hidden]="!hideContent">
     <form #exampleForm="ngForm">
       <mat-form-field class="col-md-5" >
         <input matInput type="text" required #name name="name" id="name" [(ngModel)]="newExample.name" value="" placeholder="Nombre"/>
@@ -52,11 +52,20 @@
         <button mat-raised-button color="primary" (click)="addItem()">Agregar recurso</button>
       </div>
       <br><br>
-      <div class="col-md-12">
-        <button mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >Guardar borrador</button>
-        <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancelar</button>
-      </div>
     </form>
+  </div>
+  <div class="col-md-12" [hidden]="hideContent">
+    <br><br>
+    <p>
+      {{errorMessage}}
+    </p>
+    <br><br>
+  </div>
+  <div class="col-md-12">
+    <mat-progress-bar mode="indeterminate" [hidden]="hideContent"></mat-progress-bar>
+    <br><br>
+    <button mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >Guardar borrador</button>
+    <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancelar</button>
   </div>
 </div>
 

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {HomelistService} from "../services/homelist.service";
-import { AddDrafExamplesComponent } from '../add-draf-examples/add-draf-examples.component';
-import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +11,7 @@ export class HomeComponent implements OnInit {
   public toolsObject:any[]=[];
   public filterargs: String ="";
   public strategyFilter: String ="";
-  constructor(public toolList: HomelistService, public dialog: MatDialog) {
+  constructor(public toolList: HomelistService) {
   }
 
   ngOnInit() {
@@ -26,17 +24,6 @@ export class HomeComponent implements OnInit {
         console.log(<any>error);
       }
     );
-  }
-
-  abrirDialogo(): void {
-    let dialogRef = this.dialog.open(AddDrafExamplesComponent, {
-      width: '50%',
-      height: '90%',
-      data: { title: 'Moodle - foros', id: 1}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(dialogRef);
-    });
   }
 
   filterData(filter,keyCode){

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -46,9 +46,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import 'hammerjs';
+import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
+import { DetailToolComponent } from './detail-tool/detail-tool.component';
 import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     RichtextComponent,
     EditToolComponent,
     TutorialComponent,
+    AddToolComponent,
     LimitOfTextPipe,
+    DetailToolComponent,
     AddDrafExamplesComponent
   ],
   imports: [

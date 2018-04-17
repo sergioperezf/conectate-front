@@ -1,0 +1,94 @@
+<div class="container-fluid">    
+  <div class="row">
+      <div class="col-12  col-md-12">
+          <h2>{{title}}</h2>
+          <mat-expansion-panel expanded="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title> <h5>Información básica</h5></mat-panel-title>                  
+            </mat-expansion-panel-header>
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold"> Nombre</h6>
+              </div>
+              <div class="col-md-4">
+                <h4>{{tool.name}}</h4>
+              </div>
+
+              <div class="col-md-2">
+                  <h6 class="font-weight-bold">Estado</h6>
+                </div>
+                <div class="col-md-4">
+                  <label>{{tool.state}}</label>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Descripción</h6>
+              </div>
+              <div class="col-md-10">
+                <label class="text-justify">{{tool.description}}</label>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                  <h6 class="font-weight-bold">Restricciones de Uso</h6>
+                </div>
+                <div class="col-md-10">
+                  <label  class="text-justify">{{tool.usageRestrictions}}</label>
+                </div>
+              </div>
+                       
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Tipo de Licencia</h6>
+              </div>
+              <div class="col-md-4">
+                <label>{{tool.typeLicense}}</label>
+              </div>
+
+              <div class="col-md-2">
+                  <h6 class="font-weight-bold">Versión</h6>
+                </div>
+                <div class="col-md-4">
+                  <label>{{tool.version}}</label>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Intregración LMS</h6>
+              </div>
+              <div class="col-md-10">
+                <label  class="text-justify">{{tool.integrationLms}}</label>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Url Sitio</h6>
+              </div>
+              <div class="col-md-10">
+                <label> <a href="{{tool.urlSite}}" target="_blank" >{{tool.urlSite}}</a></label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Url de Descarga</h6>
+              </div>
+              <div class="col-md-10">
+                <label>{{tool.urlDownload}}</label>
+              </div>
+            </div>                                      
+          </mat-expansion-panel>          
+      </div>
+  </div>
+</div>
+
+

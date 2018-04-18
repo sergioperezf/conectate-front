@@ -79,7 +79,7 @@
                            
                             <div class="col-12 col-md-8 offset-md-4">   
                                     <br/>       
-                                <button mat-raised-button color="warn" type="button"  (click)="agregaTutorial=false" >
+                                <button mat-raised-button color="warn" type="button"  [routerLink]="['/home']">
                                     <mat-icon aria-label="icon-button">clear</mat-icon>
                                     Cancelar</button>
                                 <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTool.form.valid" >

@@ -50,6 +50,8 @@ import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
 import { DetailToolComponent } from './detail-tool/detail-tool.component';
 import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.component';
+import { AddTutorialComponent } from './add-tutorial/add-tutorial.component';
+import { ListTutorialComponent } from './list-tutorial/list-tutorial.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.
     AddToolComponent,
     LimitOfTextPipe,
     DetailToolComponent,
-    AddDrafExamplesComponent
+    AddDrafExamplesComponent,
+    AddTutorialComponent,
+    ListTutorialComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +110,8 @@ import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    AddDrafExamplesComponent
+    AddDrafExamplesComponent,
+    AddTutorialComponent
   ]
 })
 export class AppModule { }

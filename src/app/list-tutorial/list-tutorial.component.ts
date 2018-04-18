@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tutorial} from '../models/tutorial.models'
+import { Tutorial} from '../models/tutorial.models';
 import { TutorialService } from '../services/tutorial.service';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material';
@@ -14,23 +14,26 @@ import { AddTutorialComponent } from '../add-tutorial/add-tutorial.component';
 })
 export class ListTutorialComponent implements OnInit {
 
-  public TutorialList : Tutorial[];
-  private tutorial : Tutorial;
-  private opcionDialogo : string ;
+  public TutorialList: Tutorial[];
+  private tutorial: Tutorial;
+  private titleDialog: string ;
   IdHerramienta: number;
+  private allowEdit: boolean;
+  private widthMaxRow: number;
 
-  constructor(private tutorialService:TutorialService, public dialog: MatDialog) {
+  constructor(private tutorialService: TutorialService, public dialog: MatDialog) {
     this.TutorialList  = ELEMENT_Tutorial;
   }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.getTutoriales();
+    this.widthMaxRow = this.TutorialList.length * 250;
   }
 
-  getTutoriales (){
+  getTutoriales () {
     this.tutorialService.getTutorial(this.IdHerramienta).subscribe(
       result => {
-          this.TutorialList = result;              
+          this.TutorialList = result;
       },
       error => {
         console.log(<any>error);
@@ -38,16 +41,25 @@ export class ListTutorialComponent implements OnInit {
     );
   }
 
-  addTutorial():void{
-    this.opcionDialogo = "Agregar";
+  addTutorial(): void {
+    this.titleDialog = 'Agregar';
+    this.allowEdit = true;
     this.tutorial = new Tutorial();
     this.tutorial.toolId = 1;
     this.openDialog();
   }
 
-  editTutorial(tutorials :  Tutorial){
-    this.opcionDialogo = "Editar";
-    this.tutorial = tutorials;    
+  editTutorial(tutorials:  Tutorial) {
+    this.titleDialog = 'Editar';
+    this.allowEdit = true;
+    this.tutorial = tutorials;
+    this.openDialog();
+  }
+
+  showTutorial(tutorials:  Tutorial) {
+    this.titleDialog = 'Ver';
+    this.allowEdit = false;
+    this.tutorial = tutorials;
     this.openDialog();
   }
 
@@ -56,10 +68,10 @@ export class ListTutorialComponent implements OnInit {
     let dialogRef = this.dialog.open(AddTutorialComponent, {
       width: '40%',
       height: '65%',
-      data: { opcion: this.opcionDialogo, tutorial: this.tutorial}
+      data: { action: this.titleDialog, tutorial: this.tutorial, allowEdit: this.allowEdit}
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log("cerrado");
+      console.log('cerrado');
       console.log(dialogRef);
     });
   }

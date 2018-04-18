@@ -51,6 +51,8 @@ import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
 import { DetailToolComponent } from './detail-tool/detail-tool.component';
 import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.component';
+import { AddTutorialComponent } from './add-tutorial/add-tutorial.component';
+import { ListTutorialComponent } from './list-tutorial/list-tutorial.component';
 import { ApproveToolComponent } from './approve-tool/approve-tool.component';
 
 @NgModule({
@@ -65,7 +67,8 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     AddToolComponent,
     LimitOfTextPipe,
     DetailToolComponent,
-    AddDrafExamplesComponent,
+    AddTutorialComponent,
+    ListTutorialComponent,
     ApproveToolComponent
   ],
   imports: [
@@ -109,7 +112,8 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    AddDrafExamplesComponent
+    AddDrafExamplesComponent,
+    AddTutorialComponent
   ]
 })
 export class AppModule { }

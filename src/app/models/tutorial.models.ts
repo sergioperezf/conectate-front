@@ -5,5 +5,5 @@ export class Tutorial {
     public objective:string;
     public toolId : number;
 
-    constructor(){}
+    constructor(){}    
 }

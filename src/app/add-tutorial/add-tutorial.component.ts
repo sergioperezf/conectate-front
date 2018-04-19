@@ -1,10 +1,10 @@
-import { Component, OnInit , Inject} from '@angular/core';
-import { Tutorial} from '../models/tutorial.models';
+import { Component, OnInit , Inject } from '@angular/core';
+import { Tutorial } from '../models/tutorial.models';
 import { TutorialService } from '../services/tutorial.service';
 import { NgForm } from '@angular/forms';
 import { error } from 'util';
-import { MatSnackBar} from '@angular/material';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 @Component({
   selector: 'app-add-tutorial',
@@ -16,7 +16,9 @@ export class AddTutorialComponent implements OnInit {
 
   public tutorial:  Tutorial;
   private action: string;
-  private allowEdit: Boolean;
+  private allowEdit: Boolean; 
+  configsnackBar = new MatSnackBarConfig();
+
   constructor(private tutorialService: TutorialService, private snackBar: MatSnackBar,
               private dialogRef: MatDialogRef<AddTutorialComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -26,6 +28,10 @@ export class AddTutorialComponent implements OnInit {
     this.action = this.data.action;
     this.tutorial = this.data.tutorial;
     this.allowEdit = this.data.allowEdit;
+
+    this.configsnackBar.verticalPosition = 'top';
+    this.configsnackBar.horizontalPosition = 'right';
+    this.configsnackBar.duration = 5000;
   }
 
   onSubmit(f: NgForm) {
@@ -37,15 +43,11 @@ export class AddTutorialComponent implements OnInit {
     }
     this.tutorialService.addTutorial(this.tutorial).subscribe(
       result => {
-        this.snackBar.open('Datos guardados correctamente. ', 'Hecho', {
-          duration : 5000
-        });
+        this.snackBar.open('Datos guardados correctamente. ', 'Hecho', this.configsnackBar);
         this.tutorial = new Tutorial();
       },
       error => {
-        this.snackBar.open('Error al guardar datos del tutorial', 'Error', {
-           duration: 5000
-        });
+        this.snackBar.open('Error al guardar datos del tutorial', 'Error', this.configsnackBar);
         console.log(<any>error);
       }
     );

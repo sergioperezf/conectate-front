@@ -1,5 +1,13 @@
 <div class="container-fluid">
   <div class="row">
+      <div class="col-md-12 jumbotron" [hidden]="!admin">
+        <div class="col-md-6">
+          Estás viendo un borrador pendiente por aprobar.
+        </div>
+        <div class="col-md-2" ><mat-checkbox>Aprobar</mat-checkbox></div>
+        <div class="col-md-4"><button mat-raised-button color="primary">Publicar</button></div>
+      </div>
+      <mat-divider></mat-divider>
       <div class="col-12  col-md-12">
           <h2>{{title}}</h2>
           <mat-expansion-panel expanded="true">

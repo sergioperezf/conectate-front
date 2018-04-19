@@ -18,6 +18,7 @@ import { APP_CONFIG, CONECTATE_CONFIG } from './app.config';
 // angular material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -33,7 +34,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -45,6 +45,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
+
 import 'hammerjs';
 import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
@@ -90,7 +91,6 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     MatSidenavModule,
     MatToolbarModule,
     MatCardModule,
-    MatDividerModule,
     MatExpansionModule,
     MatTabsModule,
     MatButtonToggleModule,
@@ -101,7 +101,8 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: CONECTATE_CONFIG },

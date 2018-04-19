@@ -54,12 +54,36 @@ export class AppPage {
     return element(by.css('.col-md-12 h1')).getText();
   }
 
-  editToolDraft(ToolName: string, Desc: string, Restrict: string) {
+  editToolDraft(ToolName: string, Desc: string, Restrict: string, Lic:string, Ver:number, URL:string) {
     element(by.id('txtNombre')).sendKeys(ToolName);
     browser.sleep(2000);
-    element(by.tagName('textarea')).id('mat-input-29').sendKeys(Desc);
+    element(by.id('mat-input-2')).sendKeys(Desc);
     browser.sleep(2000);
-    element(by.id('mat-input-30')).sendKeys(Restrict);
+    element(by.id('mat-input-3')).sendKeys(Restrict);
+    browser.sleep(2000);
+    element(by.id('txtLicense')).sendKeys(Lic);
+    browser.sleep(2000);
+    element(by.id('txtVersion')).sendKeys(Ver);
+    browser.sleep(2000);
+    element(by.css('.mat-select-arrow')).click();
+    browser.sleep(2000);
+    element(by.xpath('//span[contains(text(), "Borrador")]')).click();
+    browser.sleep(2000);
+    element(by.xpath('//span[contains(text(), "Sistema Operativo")]')).click();
+    browser.sleep(2000);
+    element(by.xpath('//span[contains(text(), "Windows")]')).click();
+    browser.sleep(2000);
+    element(by.xpath('//span[contains(text(), "Mac OS")]')).click();
+    browser.sleep(2000);
+    element(by.xpath('//span[contains(text(), "Linux")]')).click();
+    browser.sleep(2000);
+    element(by.css('.cdk-overlay-backdrop.cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing')).click();
+    browser.sleep(2000);
+    element(by.id('txtUrl')).click();
+    browser.sleep(2000);
+    element(by.id('txtUrl')).sendKeys(URL);
+    browser.sleep(2000);
+    element(by.css('.mat-raised-button.mat-primary')).click();
     browser.sleep(2000);
     return element(by.css('app-root h2')).getText();
   }

@@ -46,7 +46,7 @@ describe('conectate App', () => {
     page.navigateTo();
     page.getMenu();
     page.navigateToAddToolPage();
-    page.editToolDraft('Tool1','Description','Empty');
+    page.editToolDraft('Tool1','Description','Empty','Licencia', 1, 'https://www.youtube.com/watch?v=DzXlZPsOiOk');
     expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
   });
 

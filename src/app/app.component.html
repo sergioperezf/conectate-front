@@ -1,13 +1,13 @@
-<mat-toolbar color="primary">    
+<mat-toolbar color="primary">
     <button  mat-icon-button (click)="sidenav.toggle()">
         <mat-icon class="conectate-icon">menu</mat-icon>
-    </button>    
+    </button>
     <span class="conectate-spacer"></span>
     <span>Conecta-Te</span>
 </mat-toolbar>
 
 <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" #sidenav [(opened)]="opened">   
+    <mat-sidenav mode="side" #sidenav [(opened)]="opened">
         <ul class="nav">
             <li class="nav-item" >
                 <a class="nav-link" [routerLink]="['/home']" >Inicio</a>
@@ -15,12 +15,15 @@
             <li class="nav-item" >
                 <a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a>
             </li>
-        </ul>             
+            <li class="nav-item" >
+                <a class="nav-link" [routerLink]="['tool/lista']" >Login</a>
+            </li>
+        </ul>
     </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>
-    </mat-sidenav-content>    
+    </mat-sidenav-content>
 </mat-sidenav-container>
-    
+
 
 

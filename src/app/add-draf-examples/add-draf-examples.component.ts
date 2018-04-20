@@ -28,7 +28,7 @@ export class AddDrafExamplesComponent implements OnInit {
               private _fb: FormBuilder,
               public exampleService: ExamplesService,
               public dialog: MatDialog,
-              public strategyService: PedagogicStrategyService
+              public strategyService: PedagogicStrategyService,
               public disciplineService: DisciplineService) {
   }
 

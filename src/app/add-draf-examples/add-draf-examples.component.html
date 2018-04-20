@@ -37,7 +37,7 @@
           <legend>Recursos</legend>
           <div class="col-md-12" *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index"  [formGroupName]="i">
             <mat-form-field class="col-md-5">
-              <input matInput type="text" name="name" id="name" formControlName="name"
+              <input matInput type="text" name="name" id="nombre" formControlName="name"
                      placeholder="Nombre"/>
             </mat-form-field>
             <mat-form-field class="col-md-5">
@@ -64,7 +64,7 @@
   <div class="col-md-12">
     <mat-progress-bar mode="indeterminate" [hidden]="hideContent"></mat-progress-bar>
     <br>
-    <button mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >{{this.buttonMessage}}</button>
+    <button id ="Guardar" mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >{{this.buttonMessage}}</button>
     <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancelar</button>
   </div>
 </div>

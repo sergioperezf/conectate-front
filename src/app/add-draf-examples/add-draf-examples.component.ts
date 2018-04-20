@@ -51,11 +51,14 @@ export class AddDrafExamplesComponent implements OnInit {
     }
     else{
       this.newExample.resources =this.invoiceForm.value.itemRows;
+      this.newExample.state= 'Borrador';
+      this.newExample.tool = parseInt(this.data.id);
     }
     this.exampleService.addExample(this.newExample).subscribe((data) => {
       console.log(data);
       this.dialog.closeAll();
     }, (err) => {
+      console.log(err);
       this.buttonMessage ="Reintentar";
       this.errorMessage = 'Ocurrio un error almacenando los datos Status: '+ err.status+ " Mensaje: " + err.message;
     });

@@ -23,7 +23,8 @@ export class AppPage {
     return element(by.css('app-root h1')).getText();
   }
 
-  getMenu() {
+  hideMenu() {
+    browser.sleep(2000)
     return element(by.css('.mat-icon-button')).click()
   }
 
@@ -46,7 +47,6 @@ export class AppPage {
 
   navigateToAddToolPage() {
     element(by.linkText('Agregar herramienta')).click();
-    browser.sleep(2000);
     return element(by.css('app-root h2')).getText();
   }
 
@@ -90,7 +90,7 @@ export class AppPage {
 
   cancelToolDraft(){
 
-    element(by.buttonText('Cancelar')).click();
+    element(by.id('Cancelar')).click();
     browser.sleep(2000);
     
   }
@@ -98,8 +98,8 @@ export class AppPage {
   editExampleDraftInputs() {
     element(by.id('Add')).click();
     element(by.id('name')).sendKeys('Ejemplo1');
-    element(by.id('mat-input-2')).sendKeys('Desc');
-    element(by.id('mat-input-3')).sendKeys('Leer capitulo 2');
+    element(by.id('mat-input-1')).sendKeys('Desc');
+    element(by.id('mat-input-2')).sendKeys('Leer capitulo 2');
     browser.sleep(2000);
     element(by.id('nombre')).sendKeys('Manifiesto Agil');
     element(by.id('Enlace')).sendKeys('http://www.agilemanifesto.org');
@@ -122,7 +122,7 @@ export class AppPage {
   selectExampleDraftOptions() {
     element(by.name('discipline')).click();
     browser.sleep(2000);
-    element(by.xpath('//span[contains(text(), "Ciencias Exactas")]')).click();
+    element(by.xpath('//span[contains(text(), "Ciencias exactas")]')).click();
     element(by.name('pedagogicStrategy')).click();
     element(by.xpath('//span[contains(text(), "Blended")]')).click();
     browser.sleep(2000);

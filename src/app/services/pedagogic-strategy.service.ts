@@ -4,18 +4,17 @@ import {Observable} from 'rxjs';
 import {APP_CONFIG, AppConfig} from '../app.config';
 
 @Injectable()
-export class HomelistService {
+export class PedagogicStrategyService {
   public url: string;
   constructor(@Inject(APP_CONFIG) config: AppConfig, private http: HttpClient) {
-    this.url =  config.apiEndpoint + 'tool';
+    this.url =  config.apiEndpoint + 'pedagogic-strategy';
   }
 
-  getTools(): Observable<any>{
-    console.log("enviando peticion a ",this.url);
+  getPedagogicStrategy(): Observable<any>{
     return this.http.get(this.url);
   }
 
-  getTool(id): Observable<any> {
+  getPedagogicStrategyById(id): Observable<any> {
     return this.http.get(this.url + id + '/');
   }
 }

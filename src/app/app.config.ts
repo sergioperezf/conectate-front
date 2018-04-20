@@ -7,7 +7,7 @@ export interface AppConfig {
 
 
 export const CONECTATE_CONFIG: AppConfig = {
-    apiEndpoint: 'https://conectate-sp1.herokuapp.com/api/',
+    apiEndpoint: '/api/',
     title: 'Conectate'
 };
 

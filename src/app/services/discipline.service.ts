@@ -7,7 +7,7 @@ import {APP_CONFIG, AppConfig} from '../app.config';
 export class DisciplineService {
   public url: string;
   constructor(@Inject(APP_CONFIG) config: AppConfig, private http: HttpClient) {
-    this.url =  config.apiEndpoint + 'discipline';
+    this.url =  config.apiEndpoint + 'discipline/';
   }
 
   getDisciplines(): Observable<any>{

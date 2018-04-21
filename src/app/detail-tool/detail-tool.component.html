@@ -2,10 +2,10 @@
   <div class="row bar-admin">
     <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
     <div class="col-md-2">
-      <mat-checkbox>Aprobar</mat-checkbox>
+      <mat-checkbox id="Approve">Aprobar</mat-checkbox>
     </div>
     <div class="col-md-2">
-      <button mat-raised-button color="primary">Publicar</button>
+      <button mat-raised-button color="primary" (click)="tool.state='Publicado'">Publicar</button>
     </div>
   </div>
   <div class="row">

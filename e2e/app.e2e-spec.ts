@@ -25,14 +25,16 @@ describe('conectate App', () => {
     expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
   });
 
-  /*it('should navigate to add example page', () => {
+  it('should navigate to add example page', () => {
     page.navigateTo();
-    expect(page.navigateToAddExamplePage()).toEqual('Herramienta x');
-  });*/
+    page.navigateToDetailName();
+    browser.sleep(2000);
+    expect(page.navigateToAddExamplePage()).toEqual('Moodle - foros');
+  });
 
   it('should navigate to tool detail', () => {
-    page.navigateToDetail(1);
-    expect(page.navigateToDetail(1)).toEqual('Moodlle');
+    page.navigateToDetailName();
+    expect(page.navigateToDetail(1)).toEqual('Mega tool');
   });
 
   it('should edit and save tool draft', () => {
@@ -43,6 +45,18 @@ describe('conectate App', () => {
     page.selectToolDraftOptions();
     page.saveToolDraft();
     expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
+  });
+
+  it('should save tool draft and appear in home', () => {
+    page.navigateTo();
+    //page.getMenu();
+    page.navigateToAddToolPage();
+    page.editToolDraftInputs();
+    page.selectToolDraftOptions();
+    page.saveToolDraft();
+    browser.sleep(2000);
+    page.returnHome();
+    expect(page.returnHome()).toBe('ToolName');
   });
 
   it('should edit and cancel tool draft', () => {
@@ -58,24 +72,44 @@ describe('conectate App', () => {
 
   it('should edit and cancelexample draft', () => {
     page.navigateTo();
-    //page.navigateToDetailName();
-    page.navigateToDetail(1);
+    page.navigateToDetailName();
     page.editExampleDraftInputs();
     page.editExampleDraftResource();
     page.selectExampleDraftOptions();
     page.cancelExampleDraft();
-    expect(page.navigateToDetail(1)).toEqual('Moodlle');
+    expect(page.navigateToDetail(1)).toEqual('Mega tool');
   });
 
   it('should edit and save example draft', () => {
     page.navigateTo();
-    //page.navigateToDetailName();
-    page.navigateToDetail(1);
+    page.navigateToDetailName();
     page.editExampleDraftInputs();
     page.editExampleDraftResource();
     page.selectExampleDraftOptions();
     page.saveExampleDraft();
-    expect(page.navigateToDetail(1)).toEqual('Moodlle');
+    expect(page.navigateToDetail(1)).toEqual('Mega tool');
   });
 
+  it('should login and see drafts', () => {
+    page.navigateTo();
+    page.navigateToDrafts();
+    expect(page.navigateToDrafts()).toEqual('Herramientas por aprobar');
+  });
+
+  it('should go into draft and approve', () => {
+    page.navigateTo();
+    page.navigateToDrafts();
+    page.approveDraft();
+    var checked=element(by.css('.mat-checkbox.mat-accent.mat-checkbox-anim-unchecked-checked.mat-checkbox-checked'))
+    expect(checked.isDisplayed()).toBe(true);
+  });
+
+  it('should publish draft', () => {
+    page.navigateTo();
+    page.navigateToDrafts();
+    page.approveDraft();
+    page.publishDraft();
+    expect(page.publishDraft()).toEqual('Publicado');
+  });
+  
 });

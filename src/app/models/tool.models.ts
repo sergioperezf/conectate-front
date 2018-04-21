@@ -4,14 +4,15 @@ export class Tool {
     public id:number;
     public name:string;
     public description :string;
-    public usageRestrictions : string;
-    public urlSite :string;
-    public urlDownload: string;
-    public licenseType :string;
+    public usage_restrictions : string;
+    public url_site :string;
+    public url_download: string;
+    public license_type :string;
     public version: string;    
     public state : string;
-    public integrationLms: string;
+    public integration_lms: string;
     public systems : OperativeSystems[] = [];
+    public key_words : string;
 
     constructor(){}
 }

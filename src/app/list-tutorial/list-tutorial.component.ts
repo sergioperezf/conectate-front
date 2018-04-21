@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Tutorial} from '../models/tutorial.models';
 import { TutorialService } from '../services/tutorial.service';
 import { NgForm } from '@angular/forms';
@@ -14,10 +14,11 @@ import { AddTutorialComponent } from '../add-tutorial/add-tutorial.component';
 })
 export class ListTutorialComponent implements OnInit {
 
+  @Input() idTool : number;
+
   public TutorialList: Tutorial[];
   private tutorial: Tutorial;
-  private titleDialog: string ;
-  IdHerramienta: number;
+  private titleDialog: string ;  
   private allowEdit: boolean;
   private widthMaxRow: number;
 
@@ -31,7 +32,7 @@ export class ListTutorialComponent implements OnInit {
   }
 
   getTutoriales () {
-    this.tutorialService.getTutorial(this.IdHerramienta).subscribe(
+    this.tutorialService.getTutorial(this.idTool).subscribe(
       result => {
           this.TutorialList = result;
       },
@@ -45,7 +46,7 @@ export class ListTutorialComponent implements OnInit {
     this.titleDialog = 'Agregar';
     this.allowEdit = true;
     this.tutorial = new Tutorial();
-    this.tutorial.toolId = 1;
+    this.tutorial.toolId = this.idTool;
     this.openDialog();
   }
 

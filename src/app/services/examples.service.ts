@@ -10,9 +10,12 @@ export class ExamplesService {
   private url : string;
 
   constructor(@Inject(APP_CONFIG) config: AppConfig, private http: HttpClient) {
-    this.url =  config.apiEndpoint + 'example/';
+    this.url =  config.apiEndpoint + 'tool/';
   }
-
+  getExamples(toolId: number): Observable<any>{
+    console.log("enviando peticion a ",this.url);
+    return this.http.get(this.url+toolId+'/examples/');
+  }
   addExample(example: Example): Observable<any> {
     return this.http.post(this.url, example);
   }

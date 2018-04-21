@@ -22,6 +22,7 @@ export class AddDrafExamplesComponent implements OnInit {
   public buttonMessage: String = 'Guardar borrador';
   public pegadogicObject: any[];
   public disciplines: any[];
+  public editable: Boolean;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               public newExample: Example,
@@ -74,12 +75,41 @@ export class AddDrafExamplesComponent implements OnInit {
         },
       ];
     });
+    if(this.data.edit){
+      //editar
+      this.newExample = this.data.example;
+
+      this.editable = false;
+    }
+    else{
+      //solo ver.
+      if (this.data.example){
+        this.newExample = this.data.example;
+        this.loadResources();
+        this.editable = true;
+      } else {
+        this.newExample = new Example();
+        this.editable = false;
+      }
+    }
     console.log(this.data);
   }
   initItemRows() {
     return this._fb.group({
       name: [''],
       link: ['']
+    });
+  }
+  loadResources(){
+    const control = <FormArray>this.invoiceForm.controls['itemRows'];
+    for(let i=0;i<this.newExample.resources.length; i++) {
+      control.push(this.initItemsWithData(this.newExample.resources[i]));
+    }
+  }
+  initItemsWithData(resources) {
+    return this._fb.group({
+      name: [resources.name],
+      link: [resources.link]
     });
   }
   addItem(): void {

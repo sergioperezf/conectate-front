@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Tool } from '../models/tool.models';
-import { ToolService } from '../services/tool.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Tool} from '../models/tool.models';
+import {ToolService} from '../services/tool.service';
+
 
 @Component({
   selector: 'app-detail-tool',
@@ -12,17 +13,17 @@ import { ToolService } from '../services/tool.service';
 export class DetailToolComponent implements OnInit {
 
 
-  private tool : Tool;
-  private title : string = "Detalle de herramienta";
+  private tool: Tool;
+  private title: string = "Detalle de herramienta";
   private admin: Boolean = false;
-  
+
   private loadingPublish: Boolean = true;
   private errorMessage: Boolean = true;
 
-  private idTool : number;
+  private idTool: number;
 
-  constructor(private route: ActivatedRoute, private toolService:ToolService) {
-    this.tool = new Tool();    
+  constructor(private route: ActivatedRoute, private toolService: ToolService, public router: Router) {
+    this.tool = new Tool();
   }
 
   ngOnInit() {
@@ -32,19 +33,18 @@ export class DetailToolComponent implements OnInit {
     });
 
     this.getDetail();
-    
+
     let sesion = sessionStorage.getItem('login');
-    if(sesion){
+    if (sesion) {
       this.admin = true;
-    }    
+    }
   }
 
-  
 
-  getDetail (){
+  getDetail() {
     this.toolService.get(this.idTool).subscribe(
       result => {
-          this.tool = result;              
+        this.tool = result;
       },
       error => {
         console.log(<any>error);
@@ -52,18 +52,21 @@ export class DetailToolComponent implements OnInit {
     );
   }
 
-  publishTool(): void {
+  publishTool() {
     this.loadingPublish = true;
-    let stateAndId ={
-      "state":"Publicado",
-      "id":this.idTool
-    }
-    this.toolService.publish(stateAndId).subscribe(()=>{
-      console.log("correcto");
+    let stateAndId = {
+      "state": "Publicado",
+      "id": this.idTool,
+      "name":this.tool.name,
+      "description": this.tool.description
+    };
+    console.log(stateAndId);
+    this.toolService.publish(stateAndId).subscribe(() => {
+      this.router.navigate(['tool/lista']);
       this.loadingPublish = false;
-    },(err)=>{
-      this.loadingPublish = false;            
+    }, (err) => {
       console.log(err);
+      this.errorMessage = false;
     });
   }
 }

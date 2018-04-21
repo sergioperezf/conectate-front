@@ -7,8 +7,8 @@ import {Tool} from '../models/tool.models';
 @Injectable()
 export class ToolService {
 
-  private url : string;  
-  constructor(@Inject(APP_CONFIG) config:AppConfig, private http: HttpClient) {    
+  private url : string;
+  constructor(@Inject(APP_CONFIG) config:AppConfig, private http: HttpClient) {
     this.url =  config.apiEndpoint + "tool"
   }
 
@@ -29,8 +29,7 @@ export class ToolService {
   }
 
   publish(stateAndId): Observable<any>{
-    let data  = JSON.stringify(stateAndId);
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this.http.put(this.url + "/" + stateAndId.id, data, {headers: headers});
+    console.log(this.url + "/" + stateAndId.id);
+    return this.http.put(this.url + "/" + stateAndId.id+"/", stateAndId);
   }
 }

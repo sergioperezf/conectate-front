@@ -8,7 +8,7 @@ describe('conectate App', () => {
     page = new AppPage();
   });
 
-  it('should display Conectate Page', () => {
+  /*it('should display Conectate Page', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Conectate');
   });
@@ -102,9 +102,9 @@ describe('conectate App', () => {
     page.approveDraft();
     var checked=element(by.css('.mat-checkbox.mat-accent.mat-checkbox-anim-unchecked-checked.mat-checkbox-checked'))
     expect(checked.isDisplayed()).toBe(true);
-  });
+  });*/
 
-  it('should publish draft', () => {
+  it('should change draft state to published in tool detail view ', () => {
     page.navigateTo();
     page.navigateToDrafts();
     page.approveDraft();

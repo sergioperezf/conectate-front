@@ -105,41 +105,8 @@
           </div>
         </mat-expansion-panel>
 
-
-        <mat-expansion-panel expanded="true">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <h5>Actividades/Ejemplos</h5>
-            </mat-panel-title>
-            <mat-panel-description>
-              Actividades donde fue utilizada esta herramienta
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <div class="col-md-6 offset-md-3">
-            <mat-toolbar color="primary">
-              <mat-toolbar-row>
-                <span>Aqui</span>
-              </mat-toolbar-row>
-              <mat-toolbar-row>
-                <span>va el </span>
-                <span class="example-spacer"></span>
-              </mat-toolbar-row>
-              <mat-toolbar-row>
-                <span>
-                  <- carrusel ->
-                </span>
-                <span class="example-spacer"></span>
-              </mat-toolbar-row>
-            </mat-toolbar>
-          </div>
-          <mat-action-row>
-            <button id="Add" mat-raised-button color="primary" (click)="openDialog()">
-              <mat-icon aria-label="">add</mat-icon>Agregar actividad
-            </button>
-          </mat-action-row>
-
-        </mat-expansion-panel>
-
+        <app-list-example [idTool]="idTool"></app-list-example>
+        <br/>
         <app-list-tutorial [idTool]="idTool"></app-list-tutorial>
 
       </mat-accordion>

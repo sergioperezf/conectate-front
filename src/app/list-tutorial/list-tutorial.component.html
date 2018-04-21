@@ -1,7 +1,6 @@
 <mat-expansion-panel expanded="true">
   <mat-expansion-panel-header>
-    <mat-panel-title>
-      Tutoriales
+    <mat-panel-title><h5>Tutoriales</h5>
     </mat-panel-title>
     <mat-panel-description>
       A continuación encontraras los tutoriales de la herramienta.
@@ -9,7 +8,7 @@
   </mat-expansion-panel-header>
 
   <mat-action-row class="conectate-slides">
-    <div class="conectate-float-center" [style.width]="widthMaxRow">
+    <div class="conectate-float-center" >
       <mat-card class="conectate-card float-left conectate-child" *ngFor="let tutorials of TutorialList">
         <mat-card-header>
           <div mat-card-avatar class="conectate-header-image">
@@ -34,7 +33,7 @@
   </mat-action-row>
 
   <mat-action-row>
-    <button type="button" mat-raised-button color="primary" matTooltip="Agregar tutorial" (click)="addTutorial()">
+    <button id="btnAgregarTutorial" type="button" mat-raised-button color="primary" matTooltip="Agregar tutorial" (click)="addTutorial()">
       <mat-icon aria-label="">add</mat-icon>Agregar Tutorial
     </button>
   </mat-action-row>

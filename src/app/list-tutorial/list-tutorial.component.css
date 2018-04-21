@@ -14,6 +14,10 @@
       height: 20px;
       width: 20px;    
   }
+
+  .conectate-header-image {  
+    background-size: cover;
+  }
   
   .mat-card-actions {
     position: absolute;
@@ -30,10 +34,6 @@
     left: 50%;
   }
   
-  .conectate-header-image {  
-    background-size: cover;
-  }
-  
   .conectate-nowrap {  
     overflow: hidden;
     text-overflow: clip;  
@@ -42,14 +42,8 @@
     text-align: justify;
   }
   
-  .conectate-slides {
-    overflow-x: auto;
-    overflow-y: hidden;  
-    justify-content: space-between;
-    display: -webkit-inline-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-inline-flex;
-    display: inline-flex; 
-  }
-  
+  .conectate-slides {    
+    overflow-y: auto;  
+    justify-content: space-between;    
+    height: 320px;
+  }  

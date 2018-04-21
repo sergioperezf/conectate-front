@@ -54,6 +54,7 @@ import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.
 import { AddTutorialComponent } from './add-tutorial/add-tutorial.component';
 import { ListTutorialComponent } from './list-tutorial/list-tutorial.component';
 import { ApproveToolComponent } from './approve-tool/approve-tool.component';
+import { ListExampleComponent } from './list-example/list-example.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     AddTutorialComponent,
     ListTutorialComponent,
     ApproveToolComponent,
-    AddDrafExamplesComponent
+    AddDrafExamplesComponent,
+    ListExampleComponent
   ],
   imports: [
     BrowserModule,

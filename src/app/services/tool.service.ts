@@ -13,13 +13,13 @@ export class ToolService {
   }
 
   get(toolId: number): Observable<any>{
-    return this.http.get(this.url + "?toolId="+ toolId);
+    return this.http.get(this.url + "/"+ toolId + "/");
   }
 
   add(tool: Tool): Observable<any>{
     let data  = JSON.stringify(tool);
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this.http.post(this.url, data, {headers: headers});
+    return this.http.post(this.url + "/", data, {headers: headers});
   }
 
   put(tool: Tool): Observable<any>{

@@ -69,7 +69,8 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     DetailToolComponent,
     AddTutorialComponent,
     ListTutorialComponent,
-    ApproveToolComponent
+    ApproveToolComponent,
+    AddDrafExamplesComponent
   ],
   imports: [
     BrowserModule,

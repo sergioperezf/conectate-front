@@ -17,30 +17,22 @@ export class DetailToolComponent implements OnInit {
   private tool : Tool;
   private title : string = "Detalle de herramienta";
   private admin: Boolean = false;
+  private idTool : number;
 
 
-  constructor(public dialog: MatDialog, private route: ActivatedRoute) {
-    this.tool = new Tool();
-    this.tool.id = 1;
-    this.tool.name = "Moodlle";
-    this.tool.description = "es una herramienta de gestión de aprendizaje (LMS), " +
-      "o más concretamente de Learning Content Management (LCMS), de distribución libre," +
-      "escrita en PHP1​. Está concebida para ayudar a los educadores a crear comunidades de " +
-      "aprendizaje en línea2​, Moodle es usada en blended learning, educación a distancia, " +
-      " clase invertida y diversos proyectos de e-learning en escuelas, universidades, oficinas " +
-      " y otros sectores3​4​. La versión más reciente es la 3.5.";
-    this.tool.state = "Borrador";
-    this.tool.licenseType = "Libre";
-    this.tool.urlDownload = "https://www.unitecvirtual.edu.co/mod/page/view.php?id=36250";
-    this.tool.urlSite = "https://moodleinstitucional.uniandes.edu.co/login/index.php";
-
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, 
+              private toolService:ToolService) {
+    this.tool = new Tool();    
   }
 
   ngOnInit() {
 
     this.route.params.subscribe(params => {
-      this.tool.id = params['id'];
+      this.idTool = params['id'];
     });
+
+    this.getDetail();
+    
     let sesion = sessionStorage.getItem('login');
     if(sesion){
       this.admin = true;
@@ -57,5 +49,16 @@ export class DetailToolComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(dialogRef);
     });
+  }
+
+  getDetail (){
+    this.toolService.get(this.idTool).subscribe(
+      result => {
+          this.tool = result;              
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
   }
 }

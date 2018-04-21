@@ -7,7 +7,7 @@ import {APP_CONFIG, AppConfig} from '../app.config';
 export class HomelistService {
   public url: string;
   constructor(@Inject(APP_CONFIG) config: AppConfig, private http: HttpClient) {
-    this.url =  config.apiEndpoint + 'tool';
+    this.url =  config.apiEndpoint + 'tool/';
   }
 
   getTools(): Observable<any>{

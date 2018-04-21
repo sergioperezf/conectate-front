@@ -10,7 +10,7 @@ export class ExamplesService {
   private url : string;
 
   constructor(@Inject(APP_CONFIG) config: AppConfig, private http: HttpClient) {
-    this.url =  config.apiEndpoint + 'example';
+    this.url =  config.apiEndpoint + 'example/';
   }
 
   addExample(example: Example): Observable<any> {

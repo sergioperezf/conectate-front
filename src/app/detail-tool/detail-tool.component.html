@@ -1,4 +1,5 @@
 <div class="container-fluid">
+
   <div class="row bar-admin">
     <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
     <div class="col-md-2">
@@ -7,6 +8,14 @@
     <div class="col-md-2">
       <button mat-raised-button color="primary" (click)="tool.state='Publicado'">Publicar</button>
     </div>
+
+  <div class="row bar-admin" [hidden]="!admin">
+      <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
+      <div class="col-md-2"> <mat-checkbox [(ngModel)]="disabled">Aprobar</mat-checkbox> </div>
+      <div class="col-md-2"><button mat-raised-button color="primary" [disabled]="!disabled" (click)="publishTool()" >Publicar</button></div>
+      <br><br>
+      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
+      <p [hidden]="errorMessage">Ocurrio un error al publicar la herramienta.</p>
   </div>
   <div class="row">
     <div class="clearfix"></div>

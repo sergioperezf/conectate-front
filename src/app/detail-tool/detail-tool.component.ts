@@ -15,6 +15,10 @@ export class DetailToolComponent implements OnInit {
   private tool : Tool;
   private title : string = "Detalle de herramienta";
   private admin: Boolean = false;
+  
+  private loadingPublish: Boolean = true;
+  private errorMessage: Boolean = true;
+
   private idTool : number;
 
   constructor(private route: ActivatedRoute, private toolService:ToolService) {
@@ -46,5 +50,20 @@ export class DetailToolComponent implements OnInit {
         console.log(<any>error);
       }
     );
+  }
+
+  publishTool(): void {
+    this.loadingPublish = true;
+    let stateAndId ={
+      "state":"Publicado",
+      "id":this.idTool
+    }
+    this.toolService.publish(stateAndId).subscribe(()=>{
+      console.log("correcto");
+      this.loadingPublish = false;
+    },(err)=>{
+      this.loadingPublish = false;            
+      console.log(err);
+    });
   }
 }

@@ -104,14 +104,12 @@ export class AddDrafExamplesComponent implements OnInit {
       this.newExample.tool = parseInt(this.data.id);
     }
     this.exampleService.addExample(this.newExample).subscribe((data) => {
-      console.log(data);
       this.dialog.closeAll();
     }, (err) => {
       console.log(err);
       this.buttonMessage ="Reintentar";
       this.errorMessage = 'Ocurrio un error almacenando los datos Status: '+ err.status+ " Mensaje: " + err.message;
     });
-    console.log(this.newExample);
   }
 }
 

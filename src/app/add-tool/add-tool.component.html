@@ -44,16 +44,16 @@
                         </mat-form-field>  
 
                         <mat-form-field class="col-12 col-md-2">
-                            <mat-select [(value)]="tool.state"  placeholder="Estado" name="cboState" required >                                
-                                <mat-option value="Borrador">Borrador</mat-option>
-                                <mat-option value="Revisado">Revisado</mat-option>
-                                <mat-option value="Publicado">Publicado</mat-option>
+                            <mat-select id="state" [(value)]="tool.state"  placeholder="Estado" name="cboState" required >                                
+                                <mat-option id="draft" value="Borrador">Borrador</mat-option>
+                                <mat-option id="review" value="Revisado">Revisado</mat-option>
+                                <mat-option id="publish" value="Publicado">Publicado</mat-option>
                             </mat-select>
                             
                         </mat-form-field>
 
                         <mat-form-field class="col-12 col-md-3">
-                            <mat-select name="cboSystem" placeholder="Sistema Operativo" [formControl]="systemSel" multiple required>
+                            <mat-select id="SO" name="cboSystem" placeholder="Sistema Operativo" [formControl]="systemSel" multiple required>
                                 <mat-option *ngFor="let system of systems" [value]="system.id">{{system.name}}</mat-option>
                             </mat-select>
                             <mat-error  *ngIf="systemSel.invalid">Sistema operativo es requerido.</mat-error>
@@ -79,7 +79,7 @@
                            
                             <div class="col-12 col-md-8 offset-md-4">   
                                     <br/>       
-                                <button mat-raised-button color="warn" type="button"  (click)="agregaTutorial=false" >
+                                <button id="Cancelar" mat-raised-button color="warn" type="button"  [routerLink]="['/home']">
                                     <mat-icon aria-label="icon-button">clear</mat-icon>
                                     Cancelar</button>
                                 <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTool.form.valid" >

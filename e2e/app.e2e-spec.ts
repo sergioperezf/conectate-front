@@ -37,6 +37,15 @@ describe('conectate App', () => {
     expect(page.navigateToDetail(1)).toEqual('Mega tool');
   });
 
+  it('should edit tool draft', () => {
+    page.navigateTo();
+    //page.getMenu();
+    page.navigateToAddToolPage();
+    page.editToolDraftInputs();
+    page.selectToolDraftOptions();
+    expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
+  });
+  
   it('should edit and save tool draft', () => {
     page.navigateTo();
     //page.getMenu();
@@ -70,7 +79,17 @@ describe('conectate App', () => {
     expect(element(by.cssContainingText('.home-title','Conectate')));
   });
 
-  it('should edit and cancelexample draft', () => {
+  it('should edit example draft', () => {
+    page.navigateTo();
+    page.navigateToDetailName();
+    page.editExampleDraftInputs();
+    page.editExampleDraftResource();
+    page.selectExampleDraftOptions();
+    expect(page.navigateToDetail(1)).toEqual('Mega tool');
+  });
+
+
+  it('should edit and cancel example draft', () => {
     page.navigateTo();
     page.navigateToDetailName();
     page.editExampleDraftInputs();

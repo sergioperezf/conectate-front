@@ -28,4 +28,9 @@ export class ToolService {
     return this.http.put(this.url + "/" + tool.id, data, {headers: headers});
   }
 
+  publish(stateAndId): Observable<any>{
+    let data  = JSON.stringify(stateAndId);
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.put(this.url + "/" + stateAndId.id, data, {headers: headers});
+  }
 }

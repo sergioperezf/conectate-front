@@ -17,9 +17,11 @@ export class DetailToolComponent implements OnInit {
   private tool : Tool;
   private title : string = "Detalle de herramienta";
   private admin: Boolean = false;
+  private loadingPublish: Boolean = true;
+  private errorMessage: Boolean = true;
 
 
-  constructor(public dialog: MatDialog, private route: ActivatedRoute) {
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, public toolService: ToolService) {
     this.tool = new Tool();
     this.tool.id = 1;
     this.tool.name = "Moodlle";
@@ -56,6 +58,21 @@ export class DetailToolComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(dialogRef);
+    });
+  }
+
+  publishTool(): void {
+    this.loadingPublish = true;
+    let stateAndId ={
+      "state":"Publicado",
+      "id":this.tool.id
+    }
+    this.toolService.publish(stateAndId).subscribe(()=>{
+      console.log("correcto");
+      this.loadingPublish = false;
+    },(err)=>{
+      this.loadingPublish = false;            
+      console.log(err);
     });
   }
 }

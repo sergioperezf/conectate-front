@@ -13,8 +13,7 @@ export class AppPage {
   }
 
   navigateToDetailName() {
-    browser.sleep(2000);
-    element(by.linkText('Eclipse')).click();
+    element(by.linkText('Mega tool')).click();
     return element(by.css('.row h4')).getText();
 
   }
@@ -50,21 +49,27 @@ export class AppPage {
     return element(by.css('app-root h2')).getText();
   }
 
+  navigateToDrafts(){
+    element(by.linkText('Login')).click();
+    return element(by.css('.row h2')).getText();
+
+  }
+
   navigateBackToHome() {
     element(by.linkText('Inicio')).click();
-    browser.sleep(2000);
     return element(by.css('app-root h1')).getText();
   }
 
   navigateToAddExamplePage() {
-    element(by.css('.fab.fa-searchengin')).click();
+    element(by.id('Add')).click();
     return element(by.css('.col-md-12 h1')).getText();
   }
 
   editToolDraftInputs() {
     element(by.id('txtNombre')).sendKeys('ToolName');
-    element(by.id('mat-input-2')).sendKeys('Desc');
-    element(by.id('mat-input-3')).sendKeys('Restrict');
+    element(by.id('txtKeyWords')).sendKeys('ToolName');
+    element(by.id('mat-input-3')).sendKeys('Desc');
+    element(by.id('mat-input-4')).sendKeys('Restrict');
     element(by.id('txtLicense')).sendKeys('Lic');
     element(by.id('txtVersion')).sendKeys('Ver');
     element(by.id('txtUrl')).sendKeys('https://www.youtube.com/watch?v=DzXlZPsOiOk');
@@ -74,32 +79,36 @@ export class AppPage {
     element(by.id('state')).click();
     browser.sleep(2000);
     element(by.xpath('//span[contains(text(), "Borrador")]')).click();
-    browser.sleep(2000);
     element(by.id('SO')).click();
     browser.sleep(2000);
     element(by.xpath('//span[contains(text(), "Windows")]')).click();
-    browser.sleep(2000);
-      element(by.css('.cdk-overlay-backdrop.cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing')).click();
+    
+    element(by.css('.cdk-overlay-backdrop.cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing')).click();
    }
 
   saveToolDraft(){
     browser.sleep(2000);
-    element(by.css('.mat-raised-button.mat-primary')).click(); 
+    element(by.id('btnGuardar')).click(); 
     return element(by.css('app-root h2')).getText();
+  }
+
+  returnHome(){
+    
+    element(by.linkText('Inicio')).click();
+    let tool = element.all(by.tagName('a')).last();
+    return tool.getText();
   }
 
   cancelToolDraft(){
 
-    element(by.id('Cancelar')).click();
-    browser.sleep(2000);
-    
+    element(by.id('Cancelar')).click();    
   }
 
   editExampleDraftInputs() {
     element(by.id('Add')).click();
     element(by.id('name')).sendKeys('Ejemplo1');
-    element(by.id('mat-input-1')).sendKeys('Desc');
-    element(by.id('mat-input-2')).sendKeys('Leer capitulo 2');
+    element(by.id('mat-input-2')).sendKeys('Desc');
+    element(by.id('mat-input-3')).sendKeys('Leer capitulo 2');
     browser.sleep(2000);
     element(by.id('nombre')).sendKeys('Manifiesto Agil');
     element(by.id('Enlace')).sendKeys('http://www.agilemanifesto.org');
@@ -130,12 +139,22 @@ export class AppPage {
 
   saveExampleDraft(){
    element(by.id('Guardar')).click();
-       
+   return element(by.tagName('h2')).getText();   
   }
 
-   cancelExampleDraft(){
+  cancelExampleDraft(){
     element(by.buttonText('Cancelar')).click();
-    
+    return element(by.tagName('h2')).getText();
+  }
+
+  approveDraft(){
+    element(by.linkText('Dannie')).click();
+    element(by.id('Approve')).click();
+  }
+
+  publishDraft(){
+    element(by.buttonText('Publicar')).click();
+    return element(by.xpath('//label[contains(text(), "Publicado")]')).getText();
   }
 
 }

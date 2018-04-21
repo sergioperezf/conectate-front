@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RichtextComponent } from './richtext/richtext.component';
-import {app_rountig} from "./app.routes";
+import {app_rountig} from './app.routes';
 import { ToolsFilterPipe } from './home/tools-filter.pipe';
 import { StrategyFilterPipe } from './home/strategy-filter.pipe';
 
@@ -51,7 +51,10 @@ import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
 import { DetailToolComponent } from './detail-tool/detail-tool.component';
 import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.component';
+import { AddTutorialComponent } from './add-tutorial/add-tutorial.component';
+import { ListTutorialComponent } from './list-tutorial/list-tutorial.component';
 import { ApproveToolComponent } from './approve-tool/approve-tool.component';
+import { ListExampleComponent } from './list-example/list-example.component';
 
 @NgModule({
   declarations: [
@@ -65,8 +68,11 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     AddToolComponent,
     LimitOfTextPipe,
     DetailToolComponent,
+    AddTutorialComponent,
+    ListTutorialComponent,
+    ApproveToolComponent,
     AddDrafExamplesComponent,
-    ApproveToolComponent
+    ListExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +115,8 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    AddDrafExamplesComponent
+    AddDrafExamplesComponent,
+    AddTutorialComponent
   ]
 })
 export class AppModule { }

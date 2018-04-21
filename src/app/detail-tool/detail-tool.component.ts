@@ -13,8 +13,11 @@ import {MatDialog} from '@angular/material';
 })
 export class DetailToolComponent implements OnInit {
 
-  private tool: Tool;
-  private title: string = "Detalle de herramienta";
+
+  private tool : Tool;
+  private title : string = "Detalle de herramienta";
+  private admin: Boolean = false;
+
 
   constructor(public dialog: MatDialog, private route: ActivatedRoute) {
     this.tool = new Tool();
@@ -34,9 +37,14 @@ export class DetailToolComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.route.params.subscribe(params => {
       this.tool.id = params['id'];
     });
+    let sesion = sessionStorage.getItem('login');
+    if(sesion){
+      this.admin = true;
+    }    
   }
 
   openDialog(): void {
@@ -44,6 +52,7 @@ export class DetailToolComponent implements OnInit {
       width: '50%',
       height: '90%',
       data: {title: 'Moodle - foros', id: this.tool.id}
+
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(dialogRef);

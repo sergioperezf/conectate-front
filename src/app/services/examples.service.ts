@@ -14,8 +14,6 @@ export class ExamplesService {
   }
 
   addExample(example: Example): Observable<any> {
-    let params = JSON.stringify(example);
-    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post(this.url, params, {headers: headers});
+    return this.http.post(this.url, example);
   }
 }

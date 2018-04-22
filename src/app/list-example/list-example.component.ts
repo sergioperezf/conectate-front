@@ -27,8 +27,7 @@ export class ListExampleComponent implements OnInit {
   getExamples() {
     this.exampleService.getExamples(this.idTool).subscribe(
       result => {
-        this.exampleList = result;
-        console.log(this.exampleList);
+        this.exampleList = result;        
       },
       error => {
         console.log(<any>error);

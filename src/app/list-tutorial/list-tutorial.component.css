@@ -1,9 +1,9 @@
 .conectate-card{
-    width: 250px;  
-    height: 300px;  
-    margin:0 10px 10px 0;    
-    display: inline-block;
-  }
+  width: 250px;  
+  height: 300px;  
+  margin:0 10px 10px 0;    
+  display: inline-block;
+}
   
   .mat-card-title{
     font-weight: 600;
@@ -42,8 +42,8 @@
     text-align: justify;
   }
   
-  .conectate-slides {    
+  .conectate-slides {
     overflow-y: auto;  
     justify-content: space-between;    
-    height: 320px;
+    height: 328px;
   }  

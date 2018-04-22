@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'herramienta/:id/edit', component: EditToolComponent },
   { path: 'tool', component:AddToolComponent},
   { path: 'tool/lista', component: HomeComponent},
+  { path: 'tool/drafts', component: HomeComponent},
   { path: 'tool/aprobar', component: ApproveToolComponent},
   { path: 'review', component: RequestReviewComponent},
   { path: 'tool/:id/detail', component: DetailToolComponent },

@@ -31,13 +31,13 @@ describe('conectate App', () => {
     browser.sleep(2000);
     expect(page.navigateToAddExamplePage()).toEqual('Moodle - foros');
   });
-
+*/
   it('should navigate to tool detail', () => {
-    page.navigateToDetailName();
-    expect(page.navigateToDetail(1)).toEqual('Mega tool');
+    //page.navigateToDetailName();
+    expect(page.navigateToDetailName()).toEqual('angular');
   });
 
-  it('should edit tool draft', () => {
+  /*it('should edit tool draft', () => {
     page.navigateTo();
     //page.getMenu();
     page.navigateToAddToolPage();
@@ -54,7 +54,7 @@ describe('conectate App', () => {
     page.selectToolDraftOptions();
     page.saveToolDraft();
     expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
-  });
+  });*/
 
   it('should save tool draft and appear in drafts', () => {
     page.navigateTo();
@@ -64,8 +64,8 @@ describe('conectate App', () => {
     page.selectToolDraftOptions();
     page.saveToolDraft();
     browser.sleep(2000);
-    page.navigateToDraftView();
-    expect(page.navigateToDraftView()).toBe('ToolName');
+    //page.navigateToDraftsView();
+    expect(page.navigateToDraftsView()).toBe('ToolName');
   });
 
   it('should edit and cancel tool draft', () => {
@@ -85,7 +85,7 @@ describe('conectate App', () => {
     page.editExampleDraftInputs();
     page.editExampleDraftResource();
     page.selectExampleDraftOptions();
-    expect(page.navigateToDetail(1)).toEqual('Mega tool');
+    expect(page.navigateToDetail(2)).toEqual('angular');
   });
 
 
@@ -96,7 +96,7 @@ describe('conectate App', () => {
     page.editExampleDraftResource();
     page.selectExampleDraftOptions();
     page.cancelExampleDraft();
-    expect(page.navigateToDetail(1)).toEqual('Mega tool');
+    expect(page.navigateToDetail(2)).toEqual('angular');
   });
 
   it('should edit and save example draft', () => {
@@ -106,7 +106,7 @@ describe('conectate App', () => {
     page.editExampleDraftResource();
     page.selectExampleDraftOptions();
     page.saveExampleDraft();
-    expect(page.navigateToDetail(1)).toEqual('Mega tool');
+    expect(page.navigateToDetail(2)).toEqual('angular');
   });
 
   it('should login and see drafts', () => {
@@ -121,7 +121,7 @@ describe('conectate App', () => {
     page.approveDraft();
     var checked=element(by.css('.mat-checkbox.mat-accent.mat-checkbox-anim-unchecked-checked.mat-checkbox-checked'))
     expect(checked.isDisplayed()).toBe(true);
-  });*/
+  });
 
   it('should change draft state to published in tool detail view ', () => {
     page.navigateTo();

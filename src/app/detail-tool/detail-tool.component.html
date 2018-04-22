@@ -4,7 +4,7 @@
   <div class="row bar-admin" [hidden]="!admin">
     <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
     <div class="col-md-2">
-      <mat-checkbox [(ngModel)]="disabled">Aprobar</mat-checkbox>
+      <mat-checkbox id="Approve" [(ngModel)]="disabled">Aprobar</mat-checkbox>
     </div>
     <div class="col-md-2">
       <button mat-raised-button color="primary" [disabled]="!disabled" (click)="tool.state='Publicado';publishTool()" >Publicar</button>

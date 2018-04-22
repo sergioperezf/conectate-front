@@ -3,7 +3,7 @@ export class Tutorial {
     public name:string;
     public url:string;
     public objective:string;
-    public toolId : number;
+    public tool : number;
 
     constructor(){}    
 }

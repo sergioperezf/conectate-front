@@ -29,9 +29,9 @@ export class AddTutorialComponent implements OnInit {
     this.tutorial = this.data.tutorial;
     this.allowEdit = this.data.allowEdit;
 
-    this.configsnackBar.verticalPosition = 'top';
-    this.configsnackBar.horizontalPosition = 'right';
-    this.configsnackBar.duration = 5000;
+    this.configsnackBar.verticalPosition = 'bottom';
+    this.configsnackBar.horizontalPosition = 'center';
+    this.configsnackBar.duration = 7000;
   }
 
   onSubmit(f: NgForm) {
@@ -41,15 +41,30 @@ export class AddTutorialComponent implements OnInit {
       });
       return;
     }
-    this.tutorialService.addTutorial(this.tutorial).subscribe(
-      result => {
-        this.snackBar.open('Datos guardados correctamente. ', 'Hecho', this.configsnackBar);
-        this.tutorial = new Tutorial();
-      },
-      error => {
-        this.snackBar.open('Error al guardar datos del tutorial', 'Error', this.configsnackBar);
-        console.log(<any>error);
-      }
-    );
+
+    if (this.action == "Editar"){
+
+      this.tutorialService.updateTutorial(this.tutorial).subscribe(
+        result => {
+          this.snackBar.open('Datos actualizados correctamente. ', 'Hecho', this.configsnackBar);          
+        },
+        error => {
+          this.snackBar.open('Error al actualizar datos del tutorial', 'Error', this.configsnackBar);
+          console.log(<any>error);
+        }
+      );
+
+    } else if (this.action == "Agregar"){
+      this.tutorialService.addTutorial(this.tutorial).subscribe(
+        result => {
+          this.snackBar.open('Datos guardados correctamente. ', 'Hecho', this.configsnackBar);
+          this.tutorial = new Tutorial();
+        },
+        error => {
+          this.snackBar.open('Error al guardar datos del tutorial', 'Error', this.configsnackBar);
+          console.log(<any>error);
+        }
+      );
+    }  
   }
 }

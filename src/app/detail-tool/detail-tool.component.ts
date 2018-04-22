@@ -44,7 +44,7 @@ export class DetailToolComponent implements OnInit {
   getDetail() {
     this.toolService.get(this.idTool).subscribe(
       result => {
-        this.tool = result;
+        this.tool = result;        
       },
       error => {
         console.log(<any>error);

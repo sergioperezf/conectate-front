@@ -50,9 +50,9 @@ export class AddToolComponent implements OnInit {
 
 
   ngOnInit() {
-    this.configsnackBar.verticalPosition = 'top';
-    this.configsnackBar.horizontalPosition = 'right';
-    this.configsnackBar.duration = 5000;
+    this.configsnackBar.verticalPosition = 'bottom';
+    this.configsnackBar.horizontalPosition = 'center';
+    this.configsnackBar.duration = 7000;
   }
 
 }

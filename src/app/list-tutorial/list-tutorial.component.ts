@@ -23,7 +23,7 @@ export class ListTutorialComponent implements OnInit {
   private widthMaxRow: number;
 
   constructor(private tutorialService: TutorialService, public dialog: MatDialog) {
-    this.TutorialList  = ELEMENT_Tutorial;
+    this.TutorialList  = [];
   }
 
   ngOnInit() {
@@ -32,9 +32,9 @@ export class ListTutorialComponent implements OnInit {
   }
 
   getTutoriales () {
-    this.tutorialService.getTutorial(this.idTool).subscribe(
-      result => {
-          this.TutorialList = result;
+    this.tutorialService.getTutorials(this.idTool).subscribe(
+      result => {        
+          this.TutorialList = result;          
       },
       error => {
         console.log(<any>error);
@@ -46,7 +46,7 @@ export class ListTutorialComponent implements OnInit {
     this.titleDialog = 'Agregar';
     this.allowEdit = true;
     this.tutorial = new Tutorial();
-    this.tutorial.toolId = this.idTool;
+    this.tutorial.tool = this.idTool;
     this.openDialog();
   }
 
@@ -72,7 +72,9 @@ export class ListTutorialComponent implements OnInit {
       data: { action: this.titleDialog, tutorial: this.tutorial, allowEdit: this.allowEdit}
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('cerrado');
+      if (this.titleDialog != 'Ver'){
+        this.getTutoriales();
+      }
       console.log(dialogRef);
     });
   }
@@ -80,9 +82,9 @@ export class ListTutorialComponent implements OnInit {
 }
 
 const ELEMENT_Tutorial: Tutorial[] = [
-  {id: 6, name: 'Como usar la herramienta', objective  :"These utility classes float an element to the left or right, or disable floating, based on the current viewport size using the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our grid system", toolId :1, url: "https://material.angular.io/components/expansion/overview" },
-  {id: 7, name: 'Agregar una tarea', objective  :"manejar la información", toolId :1, url: "https://material.angular.io/components/expansion/overview"  },
-  {id: 8, name: 'Probando informacion',  objective  :"manejar la información", toolId :1, url: "https://material.angular.io/components/expansion/overview"  },
-  {id: 7, name: 'Agregar una tarea', objective  :"manejar la información", toolId :1, url: "https://material.angular.io/components/expansion/overview"  },  
-  {id: 6, name: 'Como usar la herramienta', objective  :"These utility classes float an element to the left or right, or disable floating, based on the current viewport size using the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our grid system", toolId :1, url: "https://material.angular.io/components/expansion/overview" }
+  {id: 6, name: 'Como usar la herramienta', objective  :"These utility classes float an element to the left or right, or disable floating, based on the current viewport size using the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our grid system", tool :1, url: "https://material.angular.io/components/expansion/overview" },
+  {id: 7, name: 'Agregar una tarea', objective  :"manejar la información", tool :1, url: "https://material.angular.io/components/expansion/overview"  },
+  {id: 8, name: 'Probando informacion',  objective  :"manejar la información", tool :1, url: "https://material.angular.io/components/expansion/overview"  },
+  {id: 7, name: 'Agregar una tarea', objective  :"manejar la información", tool :1, url: "https://material.angular.io/components/expansion/overview"  },  
+  {id: 6, name: 'Como usar la herramienta', objective  :"These utility classes float an element to the left or right, or disable floating, based on the current viewport size using the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our grid system", tool :1, url: "https://material.angular.io/components/expansion/overview" }
 ];

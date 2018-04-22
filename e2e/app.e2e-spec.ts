@@ -56,7 +56,7 @@ describe('conectate App', () => {
     expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
   });
 
-  it('should save tool draft and appear in home', () => {
+  it('should save tool draft and appear in drafts', () => {
     page.navigateTo();
     //page.getMenu();
     page.navigateToAddToolPage();
@@ -64,8 +64,8 @@ describe('conectate App', () => {
     page.selectToolDraftOptions();
     page.saveToolDraft();
     browser.sleep(2000);
-    page.returnHome();
-    expect(page.returnHome()).toBe('ToolName');
+    page.navigateToDraftView();
+    expect(page.navigateToDraftView()).toBe('ToolName');
   });
 
   it('should edit and cancel tool draft', () => {
@@ -131,4 +131,12 @@ describe('conectate App', () => {
     expect(page.publishDraft()).toEqual('Publicado');
   });
   
+  it('should publish tool draft in home ', () => {
+    page.navigateTo();
+    page.navigateToDrafts();
+    page.approveDraft();
+    page.publishDraft();
+    expect(page.returnHome()).toEqual('ToolName');
+  });
+
 });

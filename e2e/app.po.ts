@@ -99,6 +99,12 @@ export class AppPage {
     return tool.getText();
   }
 
+  navigateToDraftsView(){
+    element(by.linkText('Inicio')).click();
+    let tool = element.all(by.tagName('a')).last();
+    return tool.getText();
+  }
+
   cancelToolDraft(){
 
     element(by.id('Cancelar')).click();    

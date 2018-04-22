@@ -7,7 +7,7 @@
       <mat-checkbox [(ngModel)]="disabled">Aprobar</mat-checkbox>
     </div>
     <div class="col-md-2">
-      <button mat-raised-button color="primary" [disabled]="!disabled" (click)="publishTool()" >Publicar</button>
+      <button mat-raised-button color="primary" [disabled]="!disabled" (click)="tool.state='Publicado';publishTool()" >Publicar</button>
     </div>
     <div class="col-md-12">
       <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>

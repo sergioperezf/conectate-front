@@ -32,4 +32,9 @@ export class ToolService {
     console.log(this.url + "/" + stateAndId.id);
     return this.http.put(this.url + "/" + stateAndId.id+"/", stateAndId);
   }
+
+  review(stateAndId): Observable<any>{
+    console.log(this.url + "/" + stateAndId.id);
+    return this.http.put(this.url + "/" + stateAndId.id+"/", stateAndId);
+  }
 }

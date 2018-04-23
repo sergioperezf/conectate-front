@@ -27,7 +27,7 @@ export class ListExampleComponent implements OnInit {
   getExamples() {
     this.exampleService.getExamples(this.idTool).subscribe(
       result => {
-        this.exampleList = result;        
+        this.exampleList = result;
       },
       error => {
         console.log(<any>error);
@@ -55,7 +55,7 @@ export class ListExampleComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(dialogRef);
+      this.getExamples();
     });
   }
 

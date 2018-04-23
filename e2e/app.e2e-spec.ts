@@ -27,7 +27,7 @@ describe('conectate App', () => {
 
   it('should navigate to add example page', () => {
     page.navigateTo();
-    page.navigateToDetailName();
+    page.navigateToDetail(2);
     browser.sleep(2000);
     expect(page.navigateToAddExamplePage()).toEqual('Moodle - foros');
   });
@@ -113,26 +113,18 @@ describe('conectate App', () => {
     expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
   });
 
-  it('should save tool draft and appear in drafts', () => {
+  /*it('should save tool draft and appear in drafts', () => {
     page.navigateTo();
     //page.getMenu();
     page.navigateToAddToolPage();
     page.editToolDraftInputs();
     page.selectToolDraftOptions();
     page.saveToolDraft();
-    browser.sleep(2000);
     page.returnHome();
     page.navigateToDraftsView();
     expect(page.navigateToDraftsView()).toBe('ToolName');
   });
 
-  it('should change draft state to published in tool detail view ', () => {
-    page.navigateTo();
-    page.navigateToDrafts();
-    page.approveDraft();
-    page.publishDraft();
-    expect(page.publishDraft()).toEqual('Publicado');
-  });
   
   it('should publish tool draft in home ', () => {
     page.navigateTo();
@@ -141,6 +133,6 @@ describe('conectate App', () => {
     page.publishDraft();
     page.returnHome();
     expect(page.returnHome()).toEqual('ToolName');
-  });
+  });*/
 
 });

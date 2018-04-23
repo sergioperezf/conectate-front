@@ -1,5 +1,7 @@
 # Conectate
 
+[ ![Codeship Status for sergioperezf/conectate-front](https://app.codeship.com/projects/1379b680-2700-0136-a060-4ee94a54c221/status?branch=master)](https://app.codeship.com/projects/286971)
+
 Angular CLI: 1.7.3
 Node: 9.8.0
 OS: win32 x64

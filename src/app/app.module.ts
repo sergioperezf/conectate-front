@@ -55,6 +55,7 @@ import { AddTutorialComponent } from './add-tutorial/add-tutorial.component';
 import { ListTutorialComponent } from './list-tutorial/list-tutorial.component';
 import { ApproveToolComponent } from './approve-tool/approve-tool.component';
 import { ListExampleComponent } from './list-example/list-example.component';
+import { RequestReviewComponent } from './request-review/request-review.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ListExampleComponent } from './list-example/list-example.component';
     ListTutorialComponent,
     ApproveToolComponent,
     AddDrafExamplesComponent,
-    ListExampleComponent
+    ListExampleComponent,
+    RequestReviewComponent
   ],
   imports: [
     BrowserModule,

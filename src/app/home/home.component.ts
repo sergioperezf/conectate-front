@@ -36,10 +36,30 @@ export class HomeComponent implements OnInit {
         }
       );
     }
-    else{
+    else if(this.router.url==='/tool/lista'){
       // traer las que tienen estado por aprobar
       this.visibilityHome = false;
       sessionStorage.setItem('login', '{"user":"Tony","id":"12"}');
+      this.toolList.getTools().subscribe(
+        result => {
+          this.toolsObject = result;
+          this.toolsObject = this.toolsObject.filter((currentElement) => {
+            if(currentElement.state.toLowerCase() === "revisado"){
+              return currentElement;
+            }
+          });
+          console.log(this.toolsObject);
+        },
+        error => {
+          console.log(<any>error);
+        }
+      );
+    }
+
+    else{
+      // traer las que tienen estado por aprobar
+      this.visibilityHome = false;
+      sessionStorage.setItem('accedido', '{"user":"Camilo","id":"2"}');
       this.toolList.getTools().subscribe(
         result => {
           this.toolsObject = result;

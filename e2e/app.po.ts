@@ -13,8 +13,8 @@ export class AppPage {
   }
 
   navigateToDetailName() {
-    element(by.linkText('Mega tool')).click();
-    return element(by.css('.row h4')).getText();
+    element(by.linkText('angular')).click();
+    return element(by.css('.col-12.col-md-12 h4')).getText();
 
   }
 
@@ -99,6 +99,12 @@ export class AppPage {
     return tool.getText();
   }
 
+  navigateToDraftsView(){
+    element(by.linkText('ToolName')).click();
+    let tool = element.all(by.tagName('a')).last();
+    return tool.getText();
+  }
+
   cancelToolDraft(){
 
     element(by.id('Cancelar')).click();    
@@ -148,7 +154,7 @@ export class AppPage {
   }
 
   approveDraft(){
-    element(by.linkText('Dannie')).click();
+    element(by.linkText('ToolName')).click();
     element(by.id('Approve')).click();
   }
 

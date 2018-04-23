@@ -1,25 +1,21 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Tool} from '../models/tool.models';
 import {ToolService} from '../services/tool.service';
 
-
 @Component({
-  selector: 'app-detail-tool',
+  selector: 'app-request-review',
   providers: [ToolService],
-  templateUrl: './detail-tool.component.html',
-  styleUrls: ['./detail-tool.component.css']
+  templateUrl: './request-review.component.html',
+  styleUrls: ['./request-review.component.css']
 })
-export class DetailToolComponent implements OnInit, OnDestroy {
-
+export class RequestReviewComponent implements OnInit {
 
   private tool: Tool;
   private title: string = "Detalle de herramienta";
   private admin: Boolean = false;
-  private git: Boolean = false;
 
   private loadingPublish: Boolean = true;
-  private loadingReview: Boolean = true;
   private errorMessage: Boolean = true;
 
   private idTool: number;
@@ -27,6 +23,7 @@ export class DetailToolComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private toolService: ToolService, public router: Router) {
     this.tool = new Tool();
   }
+
 
   ngOnInit() {
 
@@ -40,14 +37,10 @@ export class DetailToolComponent implements OnInit, OnDestroy {
     if (sesion) {
       this.admin = true;
     }
-
-    let asesor= sessionStorage.getItem('accedido');
-    if (asesor) {
-      this.git = true;
-    }
+    
   }
 
-  getDetail() {
+    getDetail() {
     this.toolService.get(this.idTool).subscribe(
       result => {
         this.tool = result;        
@@ -76,31 +69,4 @@ export class DetailToolComponent implements OnInit, OnDestroy {
     });
   }
 
-  reviewTool() {
-    this.loadingReview = true;
-    let stateAndId = {
-      "state": "Revisado",
-      "id": this.idTool,
-      "name":this.tool.name,
-      "description": this.tool.description
-    };
-    console.log(stateAndId);
-    this.toolService.review(stateAndId).subscribe(() => {
-      this.router.navigate(['tool/drafts']);
-      this.loadingReview = false;
-    }, (err) => {
-      console.log(err);
-      this.errorMessage = false;
-    });
-  }
-
-  ngOnDestroy(){
-
-    sessionStorage.setItem('accedido', '');
-    sessionStorage.setItem('login', '');
-    this.admin=false;
-    this.git=false;
-  }
-
 }
-

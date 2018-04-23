@@ -4,6 +4,9 @@ import { OperativeSystems } from '../models/operative-systems.models';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { ToolService } from '../services/tool.service';
 import { NgForm, FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { ConfirmAddToolComponent } from '../confirm-add-tool/confirm-add-tool.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-tool',
@@ -20,8 +23,8 @@ export class AddToolComponent implements OnInit {
 
   configsnackBar = new MatSnackBarConfig();  
 
-  constructor(private toolService:ToolService, 
-    public snackBar: MatSnackBar) {
+  constructor(private toolService:ToolService, public snackBar: MatSnackBar, 
+              public dialog: MatDialog, private router: Router) {
     this.tool = new Tool();
     this.tool.systems = ELEMENT_DATA;
     this.title = "Agregar herramienta";
@@ -36,9 +39,9 @@ export class AddToolComponent implements OnInit {
     }
         
     this.toolService.add(this.tool).subscribe(
-      result =>{
-        this.snackBar.open("Datos guardados correctamente. ", "Hecho", this.configsnackBar)
-        this.tool = new Tool();        
+      result =>{        
+        this.tool.id = result.id;    
+        this.openDialog();                   
       }, 
       error => {
         this.snackBar.open("Error al guardar datos de la herramienta", "Error", this.configsnackBar)
@@ -46,6 +49,24 @@ export class AddToolComponent implements OnInit {
       }
       
     );
+  }
+
+   
+  openDialog(): void {
+    let dialogRef = this.dialog.open(ConfirmAddToolComponent, {
+      width: '25%',
+      height: '40%',
+      data: { name: this.tool.name }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      let editTool = result;
+      if (editTool){
+        this.router.navigate(['/tool/'+ this.tool.id + "/detail"]);
+      }
+    });
   }
 
 

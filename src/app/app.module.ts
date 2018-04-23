@@ -56,6 +56,7 @@ import { ListTutorialComponent } from './list-tutorial/list-tutorial.component';
 import { ApproveToolComponent } from './approve-tool/approve-tool.component';
 import { ListExampleComponent } from './list-example/list-example.component';
 import { RequestReviewComponent } from './request-review/request-review.component';
+import { ConfirmAddToolComponent } from './confirm-add-tool/confirm-add-tool.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { RequestReviewComponent } from './request-review/request-review.componen
     ApproveToolComponent,
     AddDrafExamplesComponent,
     ListExampleComponent,
-    RequestReviewComponent
+    RequestReviewComponent,
+    ConfirmAddToolComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +120,8 @@ import { RequestReviewComponent } from './request-review/request-review.componen
   bootstrap: [AppComponent],
   entryComponents: [
     AddDrafExamplesComponent,
-    AddTutorialComponent
+    AddTutorialComponent, 
+    ConfirmAddToolComponent
   ]
 })
 export class AppModule { }

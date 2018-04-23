@@ -8,13 +8,13 @@ export class AppPage {
 
   navigateToDetail(id: number) {
     browser.get('/tool/' + id + '/detail');
-    return element(by.tagName('h4')).getText();
+    return element(by.xpath('//h4[contains(text(), "angular")]')).getText();
 
   }
 
   navigateToDetailName() {
     element(by.linkText('angular')).click();
-    return element(by.tagName('h4')).getText();
+    return element(by.xpath('//h4[contains(text(), "angular")]')).getText();
 
   }
 
@@ -89,18 +89,19 @@ export class AppPage {
   saveToolDraft(){
     browser.sleep(2000);
     element(by.id('btnGuardar')).click(); 
+    element(by.xpath('//span[contains(text(), "No")]')).click();
     return element(by.css('app-root h2')).getText();
   }
 
   returnHome(){
-    browser.get('/tool');
-    let tool = element.all(by.cssContainingText('a','ToolName')).first();
+    browser.get('/');
+    let tool = element.all(by.tagName('a')).last();
     return tool.getText();
   }
 
   navigateToDraftsView(){
-    element(by.linkText('Ingreso Asesor')).click();
-    let tool = element.all(by.cssContainingText('a','ToolName')).first();
+    browser.get('/tool/drafts');
+    let tool = element.all(by.tagName('a')).last();
     return tool.getText();
   }
 
@@ -153,7 +154,8 @@ export class AppPage {
   }
 
   approveDraft(){
-    element(by.cssContainingText('a','ToolName')).click();
+    let draft=element.all(by.tagName('a')).last();
+    draft.click();
     element(by.id('Approve')).click();
   }
 

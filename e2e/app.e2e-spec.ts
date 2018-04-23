@@ -113,7 +113,7 @@ describe('conectate App', () => {
     expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
   });
 
-  /*it('should save tool draft and appear in drafts', () => {
+  it('should save tool draft and appear in drafts', () => {
     page.navigateTo();
     //page.getMenu();
     page.navigateToAddToolPage();
@@ -133,6 +133,6 @@ describe('conectate App', () => {
     page.publishDraft();
     page.returnHome();
     expect(page.returnHome()).toEqual('ToolName');
-  });*/
+  });
 
 });

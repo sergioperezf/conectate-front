@@ -8,7 +8,7 @@ describe('conectate App', () => {
     page = new AppPage();
   });
 
-  /*it('should display Conectate Page', () => {
+  it('should display Conectate Page', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Conectate');
   });
@@ -31,13 +31,14 @@ describe('conectate App', () => {
     browser.sleep(2000);
     expect(page.navigateToAddExamplePage()).toEqual('Moodle - foros');
   });
-*/
+
   it('should navigate to tool detail', () => {
-    //page.navigateToDetailName();
-    expect(page.navigateToDetailName()).toEqual('angular');
+    browser.sleep(3000);
+    page.navigateToDetail(2);
+    expect(page.navigateToDetail(2)).toEqual('angular');
   });
 
-  /*it('should edit tool draft', () => {
+  it('should edit tool draft', () => {
     page.navigateTo();
     //page.getMenu();
     page.navigateToAddToolPage();
@@ -54,7 +55,7 @@ describe('conectate App', () => {
     page.selectToolDraftOptions();
     page.saveToolDraft();
     expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
-  });*/
+  });
 
   it('should save tool draft and appear in drafts', () => {
     page.navigateTo();
@@ -64,7 +65,8 @@ describe('conectate App', () => {
     page.selectToolDraftOptions();
     page.saveToolDraft();
     browser.sleep(2000);
-    //page.navigateToDraftsView();
+    page.returnHome();
+    page.navigateToDraftsView();
     expect(page.navigateToDraftsView()).toBe('ToolName');
   });
 
@@ -123,19 +125,20 @@ describe('conectate App', () => {
     expect(checked.isDisplayed()).toBe(true);
   });
 
-  it('should change draft state to published in tool detail view ', () => {
+  /*it('should change draft state to published in tool detail view ', () => {
     page.navigateTo();
     page.navigateToDrafts();
     page.approveDraft();
     page.publishDraft();
     expect(page.publishDraft()).toEqual('Publicado');
-  });
+  });*/
   
   it('should publish tool draft in home ', () => {
     page.navigateTo();
     page.navigateToDrafts();
     page.approveDraft();
     page.publishDraft();
+    page.returnHome();
     expect(page.returnHome()).toEqual('ToolName');
   });
 

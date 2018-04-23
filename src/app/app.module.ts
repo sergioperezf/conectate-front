@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RichtextComponent } from './richtext/richtext.component';
-import {app_rountig} from "./app.routes";
+import {app_rountig} from './app.routes';
 import { ToolsFilterPipe } from './home/tools-filter.pipe';
 import { StrategyFilterPipe } from './home/strategy-filter.pipe';
 
@@ -18,6 +18,7 @@ import { APP_CONFIG, CONECTATE_CONFIG } from './app.config';
 // angular material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -33,7 +34,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -45,12 +45,17 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
+
 import 'hammerjs';
 import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
 import { DetailToolComponent } from './detail-tool/detail-tool.component';
 import { AddDrafExamplesComponent } from './add-draf-examples/add-draf-examples.component';
+import { AddTutorialComponent } from './add-tutorial/add-tutorial.component';
+import { ListTutorialComponent } from './list-tutorial/list-tutorial.component';
 import { ApproveToolComponent } from './approve-tool/approve-tool.component';
+import { ListExampleComponent } from './list-example/list-example.component';
+import { RequestReviewComponent } from './request-review/request-review.component';
 
 @NgModule({
   declarations: [
@@ -64,8 +69,12 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     AddToolComponent,
     LimitOfTextPipe,
     DetailToolComponent,
+    AddTutorialComponent,
+    ListTutorialComponent,
+    ApproveToolComponent,
     AddDrafExamplesComponent,
-    ApproveToolComponent
+    ListExampleComponent,
+    RequestReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +99,6 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     MatSidenavModule,
     MatToolbarModule,
     MatCardModule,
-    MatDividerModule,
     MatExpansionModule,
     MatTabsModule,
     MatButtonToggleModule,
@@ -101,14 +109,16 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: CONECTATE_CONFIG },
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    AddDrafExamplesComponent
+    AddDrafExamplesComponent,
+    AddTutorialComponent
   ]
 })
 export class AppModule { }

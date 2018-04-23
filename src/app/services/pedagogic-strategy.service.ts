@@ -7,7 +7,7 @@ import {APP_CONFIG, AppConfig} from '../app.config';
 export class PedagogicStrategyService {
   public url: string;
   constructor(@Inject(APP_CONFIG) config: AppConfig, private http: HttpClient) {
-    this.url =  config.apiEndpoint + 'pedagogic-strategy';
+    this.url =  config.apiEndpoint + 'pedagogic_strategy/';
   }
 
   getPedagogicStrategy(): Observable<any>{

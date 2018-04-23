@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Tool } from '../models/tool.models';
-import {OperativeSystems } from '../models/operative-systems.models';
-import {MatSnackBar} from '@angular/material';
-import {ToolService} from '../services/tool.service';
+import { OperativeSystems } from '../models/operative-systems.models';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { ToolService } from '../services/tool.service';
 import { NgForm, FormControl } from '@angular/forms';
 
 @Component({
@@ -18,6 +18,8 @@ export class AddToolComponent implements OnInit {
   private systems : OperativeSystems[] = [];
   private systemSel = new FormControl();
 
+  configsnackBar = new MatSnackBarConfig();  
+
   constructor(private toolService:ToolService, 
     public snackBar: MatSnackBar) {
     this.tool = new Tool();
@@ -29,24 +31,17 @@ export class AddToolComponent implements OnInit {
   onSubmit(f: NgForm){     
     
     if (f.invalid){      
-      this.snackBar.open("Por favor ingrese los datos requeridos. ", "Validación", {
-        duration : 5000
-      })
+      this.snackBar.open("Por favor ingrese los datos requeridos. ", "Validación", this.configsnackBar)
       return;
     }
-    
-    
+        
     this.toolService.add(this.tool).subscribe(
       result =>{
-        this.snackBar.open("Datos guardados correctamente. ", "Hecho", {
-          duration : 5000
-        })
+        this.snackBar.open("Datos guardados correctamente. ", "Hecho", this.configsnackBar)
         this.tool = new Tool();        
       }, 
       error => {
-        this.snackBar.open("Error al guardar datos de la herramienta", "Error", {
-           duration :5000
-        })
+        this.snackBar.open("Error al guardar datos de la herramienta", "Error", this.configsnackBar)
         console.log(<any>error);
       }
       
@@ -55,6 +50,9 @@ export class AddToolComponent implements OnInit {
 
 
   ngOnInit() {
+    this.configsnackBar.verticalPosition = 'bottom';
+    this.configsnackBar.horizontalPosition = 'center';
+    this.configsnackBar.duration = 7000;
   }
 
 }

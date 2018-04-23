@@ -6,14 +6,14 @@ import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import {ExamplesService} from '../services/examples.service';
 import {PedagogicStrategyService} from '../services/pedagogic-strategy.service';
 import {DisciplineService} from '../services/discipline.service';
+import {ResourceService} from "../services/resource.service";
 
 
 @Component({
   selector: 'app-add-draf-examples',
   templateUrl: './add-draf-examples.component.html',
   styleUrls: ['./add-draf-examples.component.css'],
-  providers : [Example, ExamplesService, PedagogicStrategyService, DisciplineService],
-
+  providers : [Example, ExamplesService, PedagogicStrategyService, DisciplineService,ResourceService]
 })
 export class AddDrafExamplesComponent implements OnInit {
   public invoiceForm: FormGroup;
@@ -30,7 +30,8 @@ export class AddDrafExamplesComponent implements OnInit {
               public exampleService: ExamplesService,
               public dialog: MatDialog,
               public strategyService: PedagogicStrategyService,
-              public disciplineService: DisciplineService) {
+              public disciplineService: DisciplineService,
+              public resourceService: ResourceService) {
   }
 
   ngOnInit() {
@@ -78,7 +79,7 @@ export class AddDrafExamplesComponent implements OnInit {
     if(this.data.edit){
       //editar
       this.newExample = this.data.example;
-
+      this.loadResources();
       this.editable = false;
     }
     else{
@@ -134,7 +135,17 @@ export class AddDrafExamplesComponent implements OnInit {
       this.newExample.tool = parseInt(this.data.id);
     }
     this.exampleService.addExample(this.newExample).subscribe((data) => {
-      this.dialog.closeAll();
+      for (let i=0;i<this.newExample.resources.length;i++){
+        this.newExample.resources[i].example = data.id;
+      }
+      console.log(this.newExample.resources);
+      this.resourceService.addResource(this.newExample.resources).subscribe(()=>{
+        this.dialog.closeAll();
+      },(err)=>{
+        console.log(err);
+        this.buttonMessage ="Reintentar";
+        this.errorMessage = 'Ocurrio un error almacenando los datos Status: '+ err.status+ " Mensaje: " + err.message;
+      });
     }, (err) => {
       console.log(err);
       this.buttonMessage ="Reintentar";

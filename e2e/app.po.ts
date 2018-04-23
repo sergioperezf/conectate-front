@@ -50,7 +50,7 @@ export class AppPage {
   }
 
   navigateToDrafts(){
-    element(by.linkText('Login')).click();
+    element(by.linkText('Ingreso Admin')).click();
     return element(by.css('.row h2')).getText();
 
   }
@@ -94,13 +94,13 @@ export class AppPage {
 
   returnHome(){
     
-    element(by.linkText('Inicio')).click();
+    element(by.linkText('Ingreso Admin')).click();
     let tool = element.all(by.tagName('a')).last();
     return tool.getText();
   }
 
   navigateToDraftsView(){
-    element(by.linkText('Acceder')).click();
+    element(by.linkText('Ingreso Asesor')).click();
     let tool = element.all(by.tagName('a')).last();
     return tool.getText();
   }

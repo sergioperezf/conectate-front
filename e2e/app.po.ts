@@ -14,7 +14,7 @@ export class AppPage {
 
   navigateToDetailName() {
     element(by.linkText('angular')).click();
-    return element(by.css('.col-12.col-md-12 h4')).getText();
+    return element(by.css('.row h4')).getText();
 
   }
 
@@ -100,7 +100,7 @@ export class AppPage {
   }
 
   navigateToDraftsView(){
-    element(by.linkText('ToolName')).click();
+    element(by.linkText('Acceder')).click();
     let tool = element.all(by.tagName('a')).last();
     return tool.getText();
   }
@@ -159,8 +159,8 @@ export class AppPage {
   }
 
   publishDraft(){
+    browser.sleep(3000);
     element(by.buttonText('Publicar')).click();
-    return element(by.xpath('//label[contains(text(), "Publicado")]')).getText();
   }
 
 }

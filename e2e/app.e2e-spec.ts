@@ -27,7 +27,7 @@ describe('conectate App', () => {
 
   it('should navigate to add example page', () => {
     page.navigateTo();
-    page.navigateToDetailName();
+    page.navigateToDetail(2);
     browser.sleep(2000);
     expect(page.navigateToAddExamplePage()).toEqual('Moodle - foros');
   });
@@ -38,38 +38,7 @@ describe('conectate App', () => {
     expect(page.navigateToDetail(2)).toEqual('angular');
   });
 
-  it('should edit tool draft', () => {
-    page.navigateTo();
-    //page.getMenu();
-    page.navigateToAddToolPage();
-    page.editToolDraftInputs();
-    page.selectToolDraftOptions();
-    expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
-  });
   
-  it('should edit and save tool draft', () => {
-    page.navigateTo();
-    //page.getMenu();
-    page.navigateToAddToolPage();
-    page.editToolDraftInputs();
-    page.selectToolDraftOptions();
-    page.saveToolDraft();
-    expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
-  });
-
-  it('should save tool draft and appear in drafts', () => {
-    page.navigateTo();
-    //page.getMenu();
-    page.navigateToAddToolPage();
-    page.editToolDraftInputs();
-    page.selectToolDraftOptions();
-    page.saveToolDraft();
-    browser.sleep(2000);
-    page.returnHome();
-    page.navigateToDraftsView();
-    expect(page.navigateToDraftsView()).toBe('ToolName');
-  });
-
   it('should edit and cancel tool draft', () => {
     page.navigateTo();
     //page.getMenu();
@@ -125,13 +94,37 @@ describe('conectate App', () => {
     expect(checked.isDisplayed()).toBe(true);
   });
 
-  /*it('should change draft state to published in tool detail view ', () => {
+  it('should edit tool draft', () => {
     page.navigateTo();
-    page.navigateToDrafts();
-    page.approveDraft();
-    page.publishDraft();
-    expect(page.publishDraft()).toEqual('Publicado');
-  });*/
+    //page.getMenu();
+    page.navigateToAddToolPage();
+    page.editToolDraftInputs();
+    page.selectToolDraftOptions();
+    expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
+  });
+  
+  it('should edit and save tool draft', () => {
+    page.navigateTo();
+    //page.getMenu();
+    page.navigateToAddToolPage();
+    page.editToolDraftInputs();
+    page.selectToolDraftOptions();
+    page.saveToolDraft();
+    expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
+  });
+
+  it('should save tool draft and appear in drafts', () => {
+    page.navigateTo();
+    //page.getMenu();
+    page.navigateToAddToolPage();
+    page.editToolDraftInputs();
+    page.selectToolDraftOptions();
+    page.saveToolDraft();
+    page.returnHome();
+    page.navigateToDraftsView();
+    expect(page.navigateToDraftsView()).toBe('ToolName');
+  });
+
   
   it('should publish tool draft in home ', () => {
     page.navigateTo();

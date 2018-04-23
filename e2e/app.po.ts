@@ -8,13 +8,13 @@ export class AppPage {
 
   navigateToDetail(id: number) {
     browser.get('/tool/' + id + '/detail');
-    return element(by.css('.row h4')).getText();
+    return element(by.xpath('//h4[contains(text(), "angular")]')).getText();
 
   }
 
   navigateToDetailName() {
     element(by.linkText('angular')).click();
-    return element(by.css('.row h4')).getText();
+    return element(by.xpath('//h4[contains(text(), "angular")]')).getText();
 
   }
 
@@ -45,12 +45,12 @@ export class AppPage {
   }
 
   navigateToAddToolPage() {
-    element(by.linkText('Agregar herramienta')).click();
+    browser.get('/tool');
     return element(by.css('app-root h2')).getText();
   }
 
   navigateToDrafts(){
-    element(by.linkText('Ingreso Admin')).click();
+    browser.get('/tool/lista');
     return element(by.css('.row h2')).getText();
 
   }
@@ -68,8 +68,8 @@ export class AppPage {
   editToolDraftInputs() {
     element(by.id('txtNombre')).sendKeys('ToolName');
     element(by.id('txtKeyWords')).sendKeys('ToolName');
-    element(by.id('mat-input-3')).sendKeys('Desc');
-    element(by.id('mat-input-4')).sendKeys('Restrict');
+    element(by.id('mat-input-2')).sendKeys('Desc');
+    element(by.id('mat-input-3')).sendKeys('Restrict');
     element(by.id('txtLicense')).sendKeys('Lic');
     element(by.id('txtVersion')).sendKeys('Ver');
     element(by.id('txtUrl')).sendKeys('https://www.youtube.com/watch?v=DzXlZPsOiOk');
@@ -89,18 +89,18 @@ export class AppPage {
   saveToolDraft(){
     browser.sleep(2000);
     element(by.id('btnGuardar')).click(); 
+    element(by.xpath('//span[contains(text(), "No")]')).click();
     return element(by.css('app-root h2')).getText();
   }
 
   returnHome(){
-    
-    element(by.linkText('Ingreso Admin')).click();
+    browser.get('/');
     let tool = element.all(by.tagName('a')).last();
     return tool.getText();
   }
 
   navigateToDraftsView(){
-    element(by.linkText('Ingreso Asesor')).click();
+    browser.get('/tool/drafts');
     let tool = element.all(by.tagName('a')).last();
     return tool.getText();
   }
@@ -154,7 +154,8 @@ export class AppPage {
   }
 
   approveDraft(){
-    element(by.linkText('ToolName')).click();
+    let draft=element.all(by.tagName('a')).last();
+    draft.click();
     element(by.id('Approve')).click();
   }
 

@@ -8,13 +8,13 @@ export class AppPage {
 
   navigateToDetail(id: number) {
     browser.get('/tool/' + id + '/detail');
-    return element(by.css('.row h4')).getText();
+    return element(by.tagName('h4')).getText();
 
   }
 
   navigateToDetailName() {
     element(by.linkText('angular')).click();
-    return element(by.css('.row h4')).getText();
+    return element(by.tagName('h4')).getText();
 
   }
 
@@ -101,7 +101,7 @@ export class AppPage {
 
   navigateToDraftsView(){
     element(by.linkText('Ingreso Asesor')).click();
-    let tool = element.all(by.tagName('a')).last();
+    let tool = element.all(by.linkText('ToolName')).first();
     return tool.getText();
   }
 
